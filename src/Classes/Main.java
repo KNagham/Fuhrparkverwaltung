@@ -6,7 +6,7 @@ import java.util.ArrayList;
 
 public class Main {
 	
-	static ArrayList<Fahrzeug> myList = new ArrayList<Fahrzeug>();
+	
 
 	public static void main(String[] args) 
 	{
@@ -29,18 +29,26 @@ public class Main {
 		}
 		*/
 		Mitarbeiter k = new Mitarbeiter(1,"Khaled");
+		ProduktionMitarbeiter N = new ProduktionMitarbeiter (1,"Nagham", true);
+		
+		Transportfahrzeug transport= new Transportfahrzeug("Tesla", 1, new Date(), 178.96, "Transport", 250.21);
+		Flurfoerderzeug flur = new Flurfoerderzeug("Tesla", 1, new Date(), 190.50, "Flur", N);
 		Elektromotor elektromotor = new Elektromotor("Tesla",1,new Date(),233.44,"Elektro",k,500.00,"Super Charger");
 		Kraftmotor karftmotor = new Kraftmotor("Toyota",2,new Date(),120.33,"Kraftmotor",k,"Gas");
 		Hybrid hybrid = new Hybrid ("Tesla",1,new Date(),233.44,"Elektro",k,"Super Charger",500.00);
+		
 		MitarbeiterDataController.AddMitarbeiter(k);
-		AddFahrzeug(elektromotor);
-		AddFahrzeug(karftmotor);
-		AddFahrzeug(hybrid);
+		
+		FahrzeugDataController.AddFahrzeug(transport);
+		FahrzeugDataController.AddFahrzeug(flur);
+		FahrzeugDataController.AddFahrzeug(elektromotor); 
+		FahrzeugDataController.AddFahrzeug(karftmotor); 
+		FahrzeugDataController.AddFahrzeug(hybrid);
 		
 		
 		
 		MitarbeiterDataController.ShowAllMitarbeiter();
-		ShowFahrzeug();
+		FahrzeugDataController.ShowAllFahrzeuge();
 		
 		
 		
@@ -75,30 +83,7 @@ public class Main {
 	}
 	
 	
-	public static void AddFahrzeug(Fahrzeug object)
-	{
-		myList.add(object);
-	}
 	
-	public static void ShowFahrzeug()
-	{
-		for(Fahrzeug x : myList)
-		{
-			if(x instanceof Elektromotor)
-			{
-				Printer(((Elektromotor) x).getAkkuKapazitaet() + " " +((Elektromotor) x).getAkkuLader() + " ");
-			}
-			if(x instanceof Kraftmotor)
-			{
-				Printer(((Kraftmotor) x).getTreibstoff());
-			}
-			if(x instanceof Hybrid)
-			{
-				Printer(((Hybrid) x).getAkkuKapazitaet() + " " + ((Hybrid) x).getAkkuLader() + " ");
-			}
-				
-		}
-	}
 	
 
 	public static void Welcome()
