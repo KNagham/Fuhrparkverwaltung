@@ -28,7 +28,7 @@ public class FahrzeugDataController
 			}
 			if(x instanceof Hybrid)
 			{
-				Main.Printer( ((Hybrid)x).getMarke()+ " "+((Hybrid)x).getAbschreibungsdauer()+" "+((Hybrid)x).getKaufdatum()+" "+((Hybrid)x).getMonatlicheKosten()+" "+((Hybrid)x).getWagenKategorie()+" "+((Hybrid)x).getMitarbeiter().getName()+" "+((Hybrid) x).getAkkuKapazitaet() + " " + ((Hybrid) x).getAkkuLader() + " ");
+				Main.Printer( ((Hybrid)x).getMarke()+ " "+((Hybrid)x).getAbschreibungsdauer()+" "+((Hybrid)x).getKaufdatum()+" "+((Hybrid)x).getMonatlicheKosten()+" "+((Hybrid)x).getWagenKategorie()+" "+((Hybrid)x).getMitarbeiter().getName()+" "+((Hybrid) x).getAkkuKapazitaet() + " " + ((Hybrid) x).getAkkuLader() + " " + ((Hybrid) x).getTreibstoff());
 			}
 				
 		}
@@ -49,7 +49,7 @@ public class FahrzeugDataController
 	{
 		for(Fahrzeug k : listFahrzeug)
 		{
-			if(k instanceof Elektromotor)
+			if(k instanceof Kraftmotor)
 			{
 				Main.Printer( ((Kraftmotor)k).getMarke()+ " "+((Kraftmotor)k).getAbschreibungsdauer()+" "+((Kraftmotor)k).getKaufdatum()+" "+((Kraftmotor)k).getMonatlicheKosten()+" "+((Kraftmotor)k).getWagenKategorie()+" "+((Kraftmotor)k).getMitarbeiter().getName()+" "+((Kraftmotor)k).getTreibstoff());
 			}
@@ -60,9 +60,9 @@ public class FahrzeugDataController
 	{
 		for(Fahrzeug h : listFahrzeug)
 		{
-			if(h instanceof Elektromotor)
+			if(h instanceof Hybrid)
 			{
-				Main.Printer( ((Hybrid)h).getMarke()+ " "+((Hybrid)h).getAbschreibungsdauer()+" "+((Hybrid)h).getKaufdatum()+" "+((Hybrid)h).getMonatlicheKosten()+" "+((Hybrid)h).getWagenKategorie()+" "+((Hybrid)h).getMitarbeiter().getName()+" "+((Hybrid)h).getAkkuKapazitaet() + " " + ((Hybrid)h).getAkkuLader());
+				Main.Printer( ((Hybrid)h).getMarke()+ " "+((Hybrid)h).getAbschreibungsdauer()+" "+((Hybrid)h).getKaufdatum()+" "+((Hybrid)h).getMonatlicheKosten()+" "+((Hybrid)h).getWagenKategorie()+" "+((Hybrid)h).getMitarbeiter().getName()+" "+((Hybrid)h).getAkkuKapazitaet() + " " + ((Hybrid)h).getAkkuLader() + " " + ((Hybrid) h).getTreibstoff());
 			}
 		}
 	}

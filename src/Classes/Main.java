@@ -10,24 +10,7 @@ public class Main {
 
 	public static void main(String[] args) 
 	{
-		/*ShowOptions("Data Zeigen","Data Einfugen");
-		int x = GetMenuInput(2);
-		if(x == 1)
-			Printer("DATA HERE !!!");*/
-		
-		/*
-		try
-		{
-			Scanner eingabeWert = new Scanner(System.in);
-			if(!eingabeWert.hasNextInt());
-			System.out.println("Bitte geben Sie ein digitale Number!");
-			
-		}
-		catch(NumberFormatException ex)
-		{
-			Scanner eingabeWert = new Scanner(System.in);
-		}
-		*/
+
 		Mitarbeiter k = new Mitarbeiter(1,"Khaled");
 		ProduktionMitarbeiter N = new ProduktionMitarbeiter (1,"Nagham", true);
 		
@@ -35,51 +18,34 @@ public class Main {
 		Flurfoerderzeug flur = new Flurfoerderzeug("Tesla", 1, new Date(), 190.50, "Flur", N);
 		Elektromotor elektromotor = new Elektromotor("Tesla",1,new Date(),233.44,"Elektro",k,500.00,"Super Charger");
 		Kraftmotor karftmotor = new Kraftmotor("Toyota",2,new Date(),120.33,"Kraftmotor",k,"Gas");
-		Hybrid hybrid = new Hybrid ("Tesla",1,new Date(),233.44,"Elektro",k,"Super Charger",500.00);
+		Hybrid hybrid = new Hybrid ("Tesla",1,new Date(),233.44,"Hybrid",k,"Super Charger",500.00,"Benzin");
 		
+		//Test mitarbeiter
 		MitarbeiterDataController.AddMitarbeiter(k);
+		MitarbeiterDataController.AddMitarbeiter(N);
 		
+		MitarbeiterDataController.ShowAllMitarbeiter();
+		MitarbeiterDataController.ShowMitarbeiter();
+		MitarbeiterDataController.ShowProduktionMitarbeiter();
+		
+		MitarbeiterDataController.ShowAllMitarbeiter();
+		
+		
+		//Test fahrzeug
 		FahrzeugDataController.AddFahrzeug(transport);
 		FahrzeugDataController.AddFahrzeug(flur);
 		FahrzeugDataController.AddFahrzeug(elektromotor); 
 		FahrzeugDataController.AddFahrzeug(karftmotor); 
 		FahrzeugDataController.AddFahrzeug(hybrid);
-		
-		
-		
-		MitarbeiterDataController.ShowAllMitarbeiter();
+						
 		FahrzeugDataController.ShowAllFahrzeuge();
 		
+		FahrzeugDataController.ShowHybridFahrzeug();
+		FahrzeugDataController.ShowKraftmotorsFahrzeug();
+		FahrzeugDataController.ShowElektromotorsFahrzeug();
+		FahrzeugDataController.ShowFlurfoerderFahrzeug();
+		FahrzeugDataController.ShowTransportFahrzeug();
 		
-		
-		
-		
-		
-		
-		/*ArrayList<Fahrzeug> myList = new ArrayList<Fahrzeug>();
-		myList.add(elektroArt);
-		myList.add(kraftArt);*/
-		/*for(int i=0; i< myList.size(); i++) 
-		{
-			System.out.println(myList.get(i) + " ");
-		}*/
-
-				
-		/*for(Fahrzeug item : myList)
-		{
-			System.out.println(item.getClass());
-			if(item instanceof Elektromotor)
-			{
-				System.out.println("ELEKTROOOOOO");
-			}
-			if(item instanceof Kraftmotor)
-			{
-				System.out.println("ELEKTROOOOOO");
-			}
-		}*/
-		 //System.out.println(myList.size());
-	
-	
 	}
 	
 	
@@ -89,11 +55,6 @@ public class Main {
 	public static void Welcome()
 	{
 		Printer("Welcomme in unserer Fuhparkverwaltung");
-		
-		/*
-		System.out.println("Möchten Sie \n 1: die Liste anschauen \n 2: In userem Fuhrparkverwaltung was neues reinlegen ?");
-		System.out.println("Bitte geben Sie 1 oder 2 ein: ");
-		*/
 	}
 	
 	public static void Printer(String s)

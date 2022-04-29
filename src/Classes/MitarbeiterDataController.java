@@ -11,13 +11,14 @@ public class MitarbeiterDataController
 	{
 		for(Mitarbeiter m : listMitarbeiter)
 		{
-			if(m instanceof Mitarbeiter)
-			{
-				Main.Printer(((Mitarbeiter)m).getId() + " " + ((Mitarbeiter)m).getName());
-			}
 			if(m instanceof ProduktionMitarbeiter)
 			{
 				Main.Printer(((ProduktionMitarbeiter)m).getId() + " " + ((ProduktionMitarbeiter)m).getName()+ " "+ ((ProduktionMitarbeiter)m).isStaplerschein() );
+				continue;
+			}
+			if(m instanceof Mitarbeiter)
+			{
+				Main.Printer(((Mitarbeiter)m).getId() + " " + ((Mitarbeiter)m).getName());
 			}
 			
 		}
@@ -38,7 +39,7 @@ public class MitarbeiterDataController
 		{
 			for(Mitarbeiter M : listMitarbeiter)
 			{
-				if(M instanceof Mitarbeiter)
+				if(M instanceof Mitarbeiter && !(M instanceof ProduktionMitarbeiter) )
 				{
 					Main.Printer(((Mitarbeiter)M).getId() + " " + ((Mitarbeiter)M).getName() );
 				}
