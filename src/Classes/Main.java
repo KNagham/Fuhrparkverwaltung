@@ -10,10 +10,10 @@ public class Main {
 
 	public static void main(String[] args) 
 	{
-		ShowOptions("Data Zeigen","Data Einfugen");
+		/*ShowOptions("Data Zeigen","Data Einfugen");
 		int x = GetMenuInput(2);
 		if(x == 1)
-			Printer("DATA HERE !!!");
+			Printer("DATA HERE !!!");*/
 		
 		/*
 		try
@@ -32,14 +32,14 @@ public class Main {
 		Elektromotor elektromotor = new Elektromotor("Tesla",1,new Date(),233.44,"Elektro",k,500.00,"Super Charger");
 		Kraftmotor karftmotor = new Kraftmotor("Toyota",2,new Date(),120.33,"Kraftmotor",k,"Gas");
 		Hybrid hybrid = new Hybrid ("Tesla",1,new Date(),233.44,"Elektro",k,"Super Charger",500.00);
-		
+		MitarbeiterDataController.AddMitarbeiter(k);
 		AddFahrzeug(elektromotor);
 		AddFahrzeug(karftmotor);
 		AddFahrzeug(hybrid);
 		
 		
 		
-		
+		MitarbeiterDataController.ShowAllMitarbeiter();
 		ShowFahrzeug();
 		
 		
