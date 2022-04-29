@@ -2,10 +2,20 @@ package Classes;
 
 import java.util.Date;
 
-public class Hybrid extends Firmenwagen{
-	
+public class Hybrid extends Firmenwagen
+{
 	private String akkuLader;
 	private double akkuKapazitaet;
+	
+	public String getAkkuLader() 
+	{
+		return akkuLader;
+	}
+
+	public double getAkkuKapazitaet() 
+	{
+		return akkuKapazitaet;
+	}
 	
 	public Hybrid(String marke,int abschreibungsDauer,Date kaufdatum,
 				double monatlicheKosten,String wagen,Mitarbeiter mit,
@@ -16,12 +26,6 @@ public class Hybrid extends Firmenwagen{
 		this.akkuKapazitaet= akkuSize;
 	}
 
-	public String getAkkuLader() {
-		return akkuLader;
-	}
-
-	public double getAkkuKapazitaet() {
-		return akkuKapazitaet;
-	}
+	
 
 }

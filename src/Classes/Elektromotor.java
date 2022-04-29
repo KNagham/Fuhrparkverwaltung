@@ -1,16 +1,18 @@
 package Classes;
 import java.util.Date;
 
-public class Elektromotor extends Firmenwagen{
-	
+public class Elektromotor extends Firmenwagen
+{
 	private double akkuKapazitaet;
 	private String akkuLader;
 
-	public double getAkkuKapazitaet() {
+	public double getAkkuKapazitaet() 
+	{
 		return akkuKapazitaet;
 	}
 
-	public String getAkkuLader() {
+	public String getAkkuLader() 
+	{
 		return akkuLader;
 	}
 

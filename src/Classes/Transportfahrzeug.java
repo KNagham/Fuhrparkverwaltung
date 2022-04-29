@@ -6,6 +6,17 @@ import java.util.Date;
 		private String typ;
 		private double gewicht;
 		
+		public String getTyp() 
+		{
+			return typ;
+		}
+
+
+		public double getGewicht() 
+		{
+			return gewicht;
+		}
+		
 		
 		public Transportfahrzeug(String marke,int abschreibungsDauer,Date kaufdatum,
 				double monatlicheKosten, String typ, double gewicht)

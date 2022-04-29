@@ -2,11 +2,13 @@ package Classes;
 
 import java.util.Date;
 
-public class Kraftmotor extends Firmenwagen{
+public class Kraftmotor extends Firmenwagen
+{
 	
 	private String treibstoff;
 	
-	public String getTreibstoff() {
+	public String getTreibstoff() 
+	{
 		return treibstoff;
 	}
 
