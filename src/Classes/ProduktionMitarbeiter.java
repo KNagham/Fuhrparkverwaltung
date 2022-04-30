@@ -9,12 +9,9 @@ public class ProduktionMitarbeiter extends Mitarbeiter
 			return staplerschein;
 	 }
 	 
-	 public ProduktionMitarbeiter(int id, String name, boolean staplerschein)
+	 public ProduktionMitarbeiter(String name, boolean staplerschein)
 	 {
-		 super(id, name);
+		 super(name);
 		 this.staplerschein= staplerschein;
 	 }
-
-	
-
 }

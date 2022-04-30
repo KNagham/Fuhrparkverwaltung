@@ -15,12 +15,10 @@ public class Mitarbeiter
 		return name;
 	}
 	
-	public Mitarbeiter(int id, String name)
+	public Mitarbeiter(String name)
 	{
-		this.id= id;
+		MitarbeiterID.incrementId();
+		this.id= MitarbeiterID.getId();
 		this.name = name;
 	}
-
-	
-
 }

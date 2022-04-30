@@ -6,6 +6,8 @@ public class Flurfoerderzeug extends Fahrzeug
 {
 	private String wagenKategorie;
 	private ProduktionMitarbeiter pm;
+	private double maxGewischt;
+	
 	
 	public String getWagenKategorie() 
 	{
@@ -18,11 +20,12 @@ public class Flurfoerderzeug extends Fahrzeug
 	}
 	
 	public Flurfoerderzeug(String marke,int abschreibungsDauer,Date kaufdatum,
-			double monatlicheKosten, String wagen,ProduktionMitarbeiter pm)
+			double monatlicheKosten, String wagen,ProduktionMitarbeiter pm,double maxGewischt)
 	{
 		super(marke,abschreibungsDauer,kaufdatum,monatlicheKosten);
 		this.wagenKategorie= wagen;
 		this.pm= pm;
+		this.maxGewischt = maxGewischt;
 	}
 
 	

@@ -13,7 +13,7 @@ public class MitarbeiterDataController
 		{
 			if(m instanceof ProduktionMitarbeiter)
 			{
-				Main.Printer(((ProduktionMitarbeiter)m).getId() + " " + ((ProduktionMitarbeiter)m).getName()+ " "+ ((ProduktionMitarbeiter)m).isStaplerschein() );
+				Main.Printer(((ProduktionMitarbeiter)m).getId() + " " + ((ProduktionMitarbeiter)m).getName()+ " "+ (((ProduktionMitarbeiter)m).isStaplerschein() == true ? "Hat Schein" : "") );
 				continue;
 			}
 			if(m instanceof Mitarbeiter)
@@ -22,6 +22,7 @@ public class MitarbeiterDataController
 			}
 			
 		}
+		Main.Printer("");
 	}
 	
 	public static void ShowProduktionMitarbeiter()

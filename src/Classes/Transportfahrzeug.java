@@ -5,7 +5,7 @@ import java.util.Date;
 	{
 		private String typ;
 		private double gewicht;
-		
+		private double maxTon;
 		public String getTyp() 
 		{
 			return typ;
@@ -19,12 +19,13 @@ import java.util.Date;
 		
 		
 		public Transportfahrzeug(String marke,int abschreibungsDauer,Date kaufdatum,
-				double monatlicheKosten, String typ, double gewicht)
+				double monatlicheKosten, String typ, double gewicht,double maxTon)
 		  {
 			
 				super(marke,abschreibungsDauer,kaufdatum,monatlicheKosten);
 				this.typ= typ;
 				this.gewicht= gewicht;
+				this.maxTon = maxTon;
 		  }
 		
 		
