@@ -12,7 +12,7 @@ public class FahrzeugDataController
 		{
 			if(x instanceof Transportfahrzeug)
 			{
-				Main.Printer( ((Transportfahrzeug)x).getMarke()+ " "+((Transportfahrzeug)x).getAbschreibungsdauer()+" "+((Transportfahrzeug)x).getKaufdatum()+" "+((Transportfahrzeug)x).getMonatlicheKosten()+" "+((Transportfahrzeug)x).getTyp() + " " + ((Transportfahrzeug)x).getGewicht());
+				Main.Printer( ((Transportfahrzeug)x).getMarke()+ " "+((Transportfahrzeug)x).getAbschreibungsdauer()+" "+((Transportfahrzeug)x).getKaufdatum()+" "+((Transportfahrzeug)x).getMonatlicheKosten()+" "+((Transportfahrzeug)x).getTyp());
 			}
 			if(x instanceof Flurfoerderzeug)
 			{
@@ -73,7 +73,7 @@ public class FahrzeugDataController
 		{
 			if(t instanceof Transportfahrzeug)
 			{
-				Main.Printer( ((Transportfahrzeug)t).getMarke()+ " "+((Transportfahrzeug)t).getAbschreibungsdauer()+" "+((Transportfahrzeug)t).getKaufdatum()+" "+((Transportfahrzeug)t).getMonatlicheKosten()+" "+((Transportfahrzeug)t).getTyp() + " " + ((Transportfahrzeug)t).getGewicht());
+				Main.Printer( ((Transportfahrzeug)t).getMarke()+ " "+((Transportfahrzeug)t).getAbschreibungsdauer()+" "+((Transportfahrzeug)t).getKaufdatum()+" "+((Transportfahrzeug)t).getMonatlicheKosten()+" "+((Transportfahrzeug)t).getTyp());
 			}
 		}
 	}
