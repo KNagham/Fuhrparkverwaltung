@@ -56,4 +56,12 @@ public class ENUMS {
 		}
 		
 	}
+	
+	enum ElektromotorAkkuLader
+	{
+		SCHUKO,
+		TYP2,
+		CCS,
+		CHADEMO
+	}
 }

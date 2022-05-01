@@ -6,9 +6,13 @@ import Classes.ENUMS.HasSchein;
 
 public class MitarbeiterDataController 
 {
-	private static ArrayList<Mitarbeiter> listMitarbeiter = new ArrayList<Mitarbeiter>();
+	public static ArrayList<Mitarbeiter> listMitarbeiter = new ArrayList<Mitarbeiter>();
 	
-	
+	public static Mitarbeiter GetOnID(int id)
+	{
+		return listMitarbeiter.get(id-1);
+		
+	}
 	public static void ShowAllMitarbeiter()
 	{
 		for(Mitarbeiter m : listMitarbeiter)

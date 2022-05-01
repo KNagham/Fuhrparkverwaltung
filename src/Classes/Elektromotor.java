@@ -17,12 +17,12 @@ public class Elektromotor extends Firmenwagen
 	}
 
 	public Elektromotor(String marke,int abschreibungsDauer,Date kaufdatum,
-				double monatlicheKosten,String wagen,Mitarbeiter mit,
-				double akkuSize, String lader)
+				double monatlicheKosten,Mitarbeiter mitarbeiter,
+				double akkuKapazitaet, String akkuLader)
 	{
-		super(marke,abschreibungsDauer,kaufdatum,monatlicheKosten,wagen,mit);
-		this.akkuKapazitaet= akkuSize;
-		this.akkuLader= lader;
+		super(marke,abschreibungsDauer,kaufdatum,monatlicheKosten,"Elektromotor",mitarbeiter);
+		this.akkuKapazitaet= akkuKapazitaet;
+		this.akkuLader= akkuLader;
 		
 	}
 }

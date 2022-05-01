@@ -87,6 +87,47 @@ public class Main {
 		}
 	}
 	
+	private static void CreateElektromotor()
+	{
+		String marke;
+		int abschreibungsDauer;
+		Date kaufdatum;
+		double monatlicheKosten;
+		Mitarbeiter mitarbeiter = null;
+		double akkuKapazitaet;
+		String akkuLader;
+		
+		Printer("To Create Elektromotor you need to fill the following field");
+		
+		Printer("Enter Marke: ");
+		marke = GetStringInput();
+		
+		Printer("Enter die Abschreibungsdauer: ");
+		abschreibungsDauer = GetIntInput();
+		
+		Printer("Enter den Kaufdatum: ");
+		kaufdatum = GetDateInput();
+		
+		Printer("Enter die monatliche Kosten : ");
+		monatlicheKosten = GetDoubleInput();
+		
+		Printer("Wählen Sie ID des Mitarbeiter aus: ");
+		MitarbeiterDataController.ShowMitarbeiter();
+		mitarbeiter = MitarbeiterDataController.GetOnID(GetIntInput());
+		try
+		{
+			boolean y = true;
+			
+		}
+		catch(Exception e)
+		{
+			
+		}
+		
+		}
+		
+		
+	
 	
 	
 	
@@ -120,25 +161,6 @@ public class Main {
 			counter++;
 		}
 		typ = ENUMS.TransportTyp.values()[GetIntInput(4) - 1].toString();
-		/*int choice = GetIntInput(4);
-		if(choice == 1)
-		{
-			typ=(ENUMS.TransportTyp.KLEIN.toString());
-		}
-		
-	    else if(choice == 2)
-		{
-			typ=(ENUMS.TransportTyp.LEICHT_1.toString());
-		}
-	    else if(choice == 3)
-		{
-			typ=(ENUMS.TransportTyp.LEICHT_2.toString());
-		}
-	    else if(choice == 4)
-		{
-			typ=(ENUMS.TransportTyp.MITTEL.toString());
-		}*/
-		
 		Transportfahrzeug temp = new Transportfahrzeug(marke,abschreibungsDauer,kaufdatum,monatlicheKosten,typ);
 		FahrzeugDataController.AddFahrzeug(temp);
 		
@@ -204,7 +226,7 @@ public class Main {
 		Printer("You have added new Mitarbeiter");
 	}
 	
-	public static void CreateProduktionMitarbeiter()
+	private static void CreateProduktionMitarbeiter()
 	{
 		String name;
 		boolean hasSchein;
@@ -271,7 +293,7 @@ public class Main {
 	//Input system
 	
 	//Int input for menu
-	public static int GetIntInput(int max)
+	private static int GetIntInput(int max)
 	{
 		//Printer("Bitte etwas von oben auswahlen [Only Digits]");
 		Scanner eingabeWert = new Scanner(System.in);
@@ -298,7 +320,7 @@ public class Main {
 		
 	}
 	
-	public static int GetIntInput()
+	private static int GetIntInput()
 	{
 		//Printer("Bitte etwas von oben auswahlen [Only Digits]");
 		Scanner eingabeWert = new Scanner(System.in);
@@ -323,7 +345,7 @@ public class Main {
 		
 	}
 	
-	public static String GetStringInput()
+	private static String GetStringInput()
 	{
 		Scanner eingabeWert = new Scanner(System.in);
 	
