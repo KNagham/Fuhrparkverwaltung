@@ -3,6 +3,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.Scanner;
 
+import Classes.ENUMS.ElektromotorAkkuLader;
 import Classes.ENUMS.HasSchein;
 import Classes.ENUMS.TransportTyp;
 
@@ -21,13 +22,17 @@ public class Main {
 		//CreateTransport();
 		//FahrzeugDataController.ShowTransportFahrzeug();
 		
-		
+		Mitarbeiter k = new Mitarbeiter("Khaled");
+		Elektromotor elektromotor = new Elektromotor("Tesla",1,new Date(),233.44,k,500.00,"Super Charger");
+		MitarbeiterDataController.AddMitarbeiter(k);
+		CreateElektromotor();
+		FahrzeugDataController.ShowElektromotorsFahrzeug();
 		/*Date x = GetDateInput();
 		System.out.println(x);*/
 		/*double y = GetDoubleInput();
 		System.out.println(y);*/
 		
-		Mitarbeiter k = new Mitarbeiter("Khaled");
+		
 		ProduktionMitarbeiter N = new ProduktionMitarbeiter ("Nagham", true);
 
 		MitarbeiterDataController.AddMitarbeiter(k);
@@ -112,18 +117,45 @@ public class Main {
 		monatlicheKosten = GetDoubleInput();
 		
 		Printer("Wählen Sie ID des Mitarbeiter aus: ");
-		MitarbeiterDataController.ShowMitarbeiter();
-		mitarbeiter = MitarbeiterDataController.GetOnID(GetIntInput());
-		try
+        ArrayList<Mitarbeiter> tempList = MitarbeiterDataController.getListMitarbeiter();
+        boolean found = false;
+        while(mitarbeiter == null)
+        {
+            MitarbeiterDataController.ShowMitarbeiter();
+            int choice = GetIntInput();
+            for(Mitarbeiter tempMitarbieter : tempList)
+            {
+                if(tempMitarbieter.getId() == choice && tempMitarbieter instanceof Mitarbeiter && !(tempMitarbieter instanceof ProduktionMitarbeiter) )
+                {
+                    mitarbeiter = tempMitarbieter;
+                    found = true;
+                    break;
+                }
+            }
+            if(!found)
+            {
+                Printer("Please Select correct mitarbeiter");
+            }
+        
+            if(!found)
+            {
+                Printer("Please Select correct mitarbeiter");
+            }
+	    }	
+	    
+	    Printer("Enter die AkkuKapazität : ");
+	    akkuKapazitaet = GetDoubleInput();
+	    
+	    Printer("Wählen Sie den AkkuLade aus: ");
+	    int counter = 1;
+	    for(var x : ElektromotorAkkuLader.values())
 		{
-			boolean y = true;
-			
+			System.out.println(counter + ". " + x.toString());
+			counter++;
 		}
-		catch(Exception e)
-		{
-			
-		}
-		
+	    akkuLader = ENUMS.ElektromotorAkkuLader.values()[GetIntInput(4) - 1].toString();
+		Elektromotor temp = new Elektromotor(marke,abschreibungsDauer,kaufdatum,monatlicheKosten,mitarbeiter,akkuKapazitaet,akkuLader);
+		FahrzeugDataController.AddFahrzeug(temp);
 		}
 		
 		
