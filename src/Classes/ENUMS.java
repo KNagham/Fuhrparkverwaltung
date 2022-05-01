@@ -64,4 +64,10 @@ public class ENUMS {
 		CCS,
 		CHADEMO
 	}
+	enum KraftmotorTreibstoff
+	{
+		AUTOGAS,
+		BENZIN,
+		DIESEL
+	}
 }

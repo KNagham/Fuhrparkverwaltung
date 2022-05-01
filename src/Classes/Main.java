@@ -5,6 +5,7 @@ import java.util.Scanner;
 
 import Classes.ENUMS.ElektromotorAkkuLader;
 import Classes.ENUMS.HasSchein;
+import Classes.ENUMS.KraftmotorTreibstoff;
 import Classes.ENUMS.TransportTyp;
 
 import java.text.SimpleDateFormat;
@@ -25,15 +26,18 @@ public class Main {
 		Mitarbeiter k = new Mitarbeiter("Khaled");
 		Elektromotor elektromotor = new Elektromotor("Tesla",1,new Date(),233.44,k,500.00,"Super Charger");
 		MitarbeiterDataController.AddMitarbeiter(k);
-		CreateElektromotor();
-		FahrzeugDataController.ShowElektromotorsFahrzeug();
+		//CreateElektromotor();
+		CreateKraftmotor();
+		FahrzeugDataController.ShowKraftmotorsFahrzeug();
 		/*Date x = GetDateInput();
 		System.out.println(x);*/
 		/*double y = GetDoubleInput();
 		System.out.println(y);*/
-		
-		
 		ProduktionMitarbeiter N = new ProduktionMitarbeiter ("Nagham", true);
+		
+		
+		
+		//ProduktionMitarbeiter N = new ProduktionMitarbeiter ("Nagham", true);
 
 		MitarbeiterDataController.AddMitarbeiter(k);
 		MitarbeiterDataController.AddMitarbeiter(N);
@@ -136,33 +140,23 @@ public class Main {
             {
                 Printer("Please Select correct mitarbeiter");
             }
-        
-            if(!found)
-            {
-                Printer("Please Select correct mitarbeiter");
-            }
 	    }	
 	    
-	    Printer("Enter die AkkuKapazität : ");
-	    akkuKapazitaet = GetDoubleInput();
+   	     Printer("Enter die AkkuKapazität : ");
+	     akkuKapazitaet = GetDoubleInput();
 	    
-	    Printer("Wählen Sie den AkkuLade aus: ");
-	    int counter = 1;
-	    for(var x : ElektromotorAkkuLader.values())
-		{
+	     Printer("Wählen Sie den AkkuLade aus: ");
+	     int counter = 1;
+	     for(var x : ElektromotorAkkuLader.values())
+		 {
 			System.out.println(counter + ". " + x.toString());
 			counter++;
-		}
-	    akkuLader = ENUMS.ElektromotorAkkuLader.values()[GetIntInput(4) - 1].toString();
-		Elektromotor temp = new Elektromotor(marke,abschreibungsDauer,kaufdatum,monatlicheKosten,mitarbeiter,akkuKapazitaet,akkuLader);
-		FahrzeugDataController.AddFahrzeug(temp);
-		}
-		
-		
-	
-	
-	
-	
+		 }
+	     akkuLader = ENUMS.ElektromotorAkkuLader.values()[GetIntInput(4) - 1].toString();
+		 Elektromotor temp = new Elektromotor(marke,abschreibungsDauer,kaufdatum,monatlicheKosten,mitarbeiter,akkuKapazitaet,akkuLader);
+		 FahrzeugDataController.AddFahrzeug(temp);
+	}
+			
 	private static void CreateTransport()
 	{
 		// benötigte Attribute 
@@ -196,6 +190,63 @@ public class Main {
 		Transportfahrzeug temp = new Transportfahrzeug(marke,abschreibungsDauer,kaufdatum,monatlicheKosten,typ);
 		FahrzeugDataController.AddFahrzeug(temp);
 		
+	}
+	
+	private static void CreateKraftmotor()
+	{
+		String marke;
+		int abschreibungsDauer;
+		Date kaufdatum;
+		double monatlicheKosten;
+		Mitarbeiter mitarbeiter = null;
+		String treibstoff;
+		
+		Printer("To Create Kraftmotor you need to fill the following field");
+		
+		Printer("Enter Marke: ");
+		marke = GetStringInput();
+		
+		Printer("Enter die Abschreibungsdauer: ");
+		abschreibungsDauer = GetIntInput();
+		
+		Printer("Enter den Kaufdatum: ");
+		kaufdatum = GetDateInput();
+		
+		Printer("Enter die monatliche Kosten : ");
+		monatlicheKosten = GetDoubleInput();
+		
+		Printer("Wählen Sie ID des Mitarbeiter aus: ");
+        ArrayList<Mitarbeiter> tempList = MitarbeiterDataController.getListMitarbeiter();
+        boolean found = false;
+        while(mitarbeiter == null)
+        {
+            MitarbeiterDataController.ShowMitarbeiter();
+            int choice = GetIntInput();
+            for(Mitarbeiter tempMitarbieter : tempList)
+            {
+                if(tempMitarbieter.getId() == choice && tempMitarbieter instanceof Mitarbeiter && !(tempMitarbieter instanceof ProduktionMitarbeiter) )
+                {
+                    mitarbeiter = tempMitarbieter;
+                    found = true;
+                    break;
+                }
+            }
+            if(!found)
+            {
+                Printer("Please Select correct mitarbeiter");
+            }
+        }
+        
+        Printer("Wählen Sie den Treibstoff aus: ");
+	     int counter = 1;
+	     for(var x : KraftmotorTreibstoff.values())
+		 {
+			System.out.println(counter + ". " + x.toString());
+			counter++;
+		 }
+	     treibstoff = ENUMS.KraftmotorTreibstoff.values()[GetIntInput(3) - 1].toString();
+	     Kraftmotor temp = new Kraftmotor(marke,abschreibungsDauer,kaufdatum,monatlicheKosten,mitarbeiter,treibstoff);
+		 FahrzeugDataController.AddFahrzeug(temp);
 	}
 	
 	

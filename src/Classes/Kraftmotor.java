@@ -13,9 +13,9 @@ public class Kraftmotor extends Firmenwagen
 	}
 
 	public Kraftmotor(String marke,int abschreibungsDauer,Date kaufdatum,
-				double monatlicheKosten,String wagen,Mitarbeiter mit, String treibstoff)
+				double monatlicheKosten,Mitarbeiter mitarbeiter, String treibstoff)
 	{
-		super(marke,abschreibungsDauer,kaufdatum,monatlicheKosten,wagen,mit);
+		super(marke,abschreibungsDauer,kaufdatum,monatlicheKosten,"Kraftmotor",mitarbeiter);
 		this.treibstoff= treibstoff;
 	}
 
