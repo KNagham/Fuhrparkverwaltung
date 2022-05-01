@@ -27,8 +27,12 @@ public class Main {
 		Elektromotor elektromotor = new Elektromotor("Tesla",1,new Date(),233.44,k,500.00,"Super Charger");
 		MitarbeiterDataController.AddMitarbeiter(k);
 		//CreateElektromotor();
-		CreateKraftmotor();
-		FahrzeugDataController.ShowKraftmotorsFahrzeug();
+		//FahrzeugDataController.ShowElektromotorsFahrzeug();
+		//Hybrid hybrid = new Hybrid ("Tesla",1,new Date(),233.44,k,"Super Charger",500.00,"Benzin");
+		CreateHybrid();
+		FahrzeugDataController.ShowHybridFahrzeug();
+		//CreateKraftmotor();
+		//FahrzeugDataController.ShowKraftmotorsFahrzeug();
 		/*Date x = GetDateInput();
 		System.out.println(x);*/
 		/*double y = GetDoubleInput();
@@ -145,7 +149,7 @@ public class Main {
    	     Printer("Enter die AkkuKapazität : ");
 	     akkuKapazitaet = GetDoubleInput();
 	    
-	     Printer("Wählen Sie den AkkuLade aus: ");
+	     Printer("Wählen Sie den AkkuLader aus: ");
 	     int counter = 1;
 	     for(var x : ElektromotorAkkuLader.values())
 		 {
@@ -249,6 +253,76 @@ public class Main {
 		 FahrzeugDataController.AddFahrzeug(temp);
 	}
 	
+	private static void CreateHybrid()
+	{
+		String marke;
+		int abschreibungsDauer;
+		Date kaufdatum;
+		double monatlicheKosten;
+		Mitarbeiter mitarbeiter= null;
+		String akkuLader;
+		double akkuKapazitaet;
+		String treibstoff;
+		
+		Printer("To Create Hybrid you need to fill the following field");
+		
+		Printer("Enter Marke: ");
+		marke = GetStringInput();
+		
+		Printer("Enter die Abschreibungsdauer: ");
+		abschreibungsDauer = GetIntInput();
+		
+		Printer("Enter den Kaufdatum: ");
+		kaufdatum = GetDateInput();
+		
+		Printer("Enter die monatliche Kosten : ");
+		monatlicheKosten = GetDoubleInput();
+		
+		Printer("Wählen Sie ID des Mitarbeiter aus: ");
+        ArrayList<Mitarbeiter> tempList = MitarbeiterDataController.getListMitarbeiter();
+        boolean found = false;
+        while(mitarbeiter == null)
+        {
+            MitarbeiterDataController.ShowMitarbeiter();
+            int choice = GetIntInput();
+            for(Mitarbeiter tempMitarbieter : tempList)
+            {
+                if(tempMitarbieter.getId() == choice && tempMitarbieter instanceof Mitarbeiter && !(tempMitarbieter instanceof ProduktionMitarbeiter) )
+                {
+                    mitarbeiter = tempMitarbieter;
+                    found = true;
+                    break;
+                }
+            }
+            if(!found)
+            {
+                Printer("Please Select correct Mitarbeiter");
+            }
+	    }	
+	    
+   	     Printer("Wählen Sie den AkkuLader aus: ");
+	     int counter = 1;
+	     for(var x : ElektromotorAkkuLader.values())
+		 {
+			System.out.println(counter + ". " + x.toString());
+			counter++;
+		 }
+	     akkuLader = ENUMS.ElektromotorAkkuLader.values()[GetIntInput(4) - 1].toString();
+	     
+	     Printer("Enter die AkkuKapazität : ");
+	     akkuKapazitaet = GetDoubleInput();
+	    	     
+	     Printer("Wählen Sie den Treibstoff aus: ");
+	     int conter = 1;
+	     for(var x : KraftmotorTreibstoff.values())
+		 {
+			System.out.println(conter + ". " + x.toString());
+			conter++;
+		 }
+	     treibstoff = ENUMS.KraftmotorTreibstoff.values()[GetIntInput(3) - 1].toString();
+		 Hybrid temp = new Hybrid(marke,abschreibungsDauer,kaufdatum,monatlicheKosten,mitarbeiter,akkuKapazitaet,akkuLader,treibstoff);
+		 FahrzeugDataController.AddFahrzeug(temp);
+	}
 	
 	private static Date GetDateInput()
 	{

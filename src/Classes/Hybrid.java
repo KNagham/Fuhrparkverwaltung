@@ -25,12 +25,12 @@ public class Hybrid extends Firmenwagen
 	}
 	
 	public Hybrid(String marke,int abschreibungsDauer,Date kaufdatum,
-				double monatlicheKosten,String wagen,Mitarbeiter mit,
-				String lader, double akkuSize,String treibstoff)
+				double monatlicheKosten,Mitarbeiter mitarbeiter, double akkuKapazitaet,
+				String akkuLader,String treibstoff)
 	{
-		super(marke,abschreibungsDauer,kaufdatum,monatlicheKosten,wagen,mit);
-		this.akkuLader= lader;
-		this.akkuKapazitaet= akkuSize;
+		super(marke,abschreibungsDauer,kaufdatum,monatlicheKosten,"Hybrid",mitarbeiter);
+		this.akkuKapazitaet= akkuKapazitaet;
+		this.akkuLader= akkuLader;
 		this.treibstoff = treibstoff;
 	}
 
