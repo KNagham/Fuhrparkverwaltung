@@ -107,17 +107,16 @@ public class Main {
 		Printer("Please Enter Name: ");
 		name = GetStringInput();
 		Printer("Please Select of the Followin: ");
+		
+		int counter = 1;
 		for(var x : HasSchein.values())
 		{
-			System.out.println(x.toString());
+			System.out.println(counter + ". " + x.toString());
+			counter++;
 		}
-		hasSchein = GetMenuInput(2) == 1 ? true : false;
 		
-		if(!hasSchein)
-		{
-			Printer("Sorry, u can't be produktionmitarbeiter wenn Sie kein schein haben");
-			return;
-		}
+		
+		hasSchein = GetMenuInput(2) == 1 ? true : false;
 		
 		ProduktionMitarbeiter temp = new ProduktionMitarbeiter(name,hasSchein);
 		MitarbeiterDataController.AddMitarbeiter(temp);

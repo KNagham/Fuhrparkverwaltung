@@ -6,7 +6,7 @@ public class ENUMS {
 	        @Override
 	        public String toString() 
 	        {
-	            return "1. Hat schein";
+	            return "Hat schein";
 	        }
 	       },
 	        
@@ -14,7 +14,7 @@ public class ENUMS {
 	    	   @Override
 	    	   public String toString()
 	    	   {
-	    		   return "2. Hat kein Schein";
+	    		   return "Hat kein Schein";
 	    	   }
 	       }
 	}

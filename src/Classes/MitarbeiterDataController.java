@@ -2,6 +2,8 @@ package Classes;
 
 import java.util.ArrayList;
 
+import Classes.ENUMS.HasSchein;
+
 public class MitarbeiterDataController 
 {
 	private static ArrayList<Mitarbeiter> listMitarbeiter = new ArrayList<Mitarbeiter>();
@@ -13,7 +15,7 @@ public class MitarbeiterDataController
 		{
 			if(m instanceof ProduktionMitarbeiter)
 			{
-				Main.Printer(((ProduktionMitarbeiter)m).getId() + " " + ((ProduktionMitarbeiter)m).getName()+ " "+ (((ProduktionMitarbeiter)m).isStaplerschein() == true ? "Hat Schein" : "") );
+				Main.Printer(((ProduktionMitarbeiter)m).getId() + " " + ((ProduktionMitarbeiter)m).getName()+ " "+ (((ProduktionMitarbeiter)m).isStaplerschein() ? HasSchein.JA : HasSchein.NEIN) );
 				continue;
 			}
 			if(m instanceof Mitarbeiter)
@@ -31,7 +33,7 @@ public class MitarbeiterDataController
 		{
 			if(pm instanceof ProduktionMitarbeiter)
 			{
-				Main.Printer(((ProduktionMitarbeiter)pm).getId() + " " + ((ProduktionMitarbeiter)pm).getName()+ " "+ ((ProduktionMitarbeiter)pm).isStaplerschein() );
+				Main.Printer(((ProduktionMitarbeiter)pm).getId() + " " + ((ProduktionMitarbeiter)pm).getName()+ " "+ ( ((ProduktionMitarbeiter)pm).isStaplerschein() ? HasSchein.JA : HasSchein.NEIN ) );
 			}
 		}
 	}

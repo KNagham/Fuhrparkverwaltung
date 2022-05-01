@@ -4,8 +4,13 @@ import java.util.Date;
 	public class Transportfahrzeug extends Fahrzeug
 	{
 		private String typ;
-		private double gewicht;
-		private double maxTon;
+		private double gewicht; //Delete
+		private double maxTon; //Delete
+		public double getMaxTon() {
+			return maxTon;
+		}
+
+
 		public String getTyp() 
 		{
 			return typ;

@@ -9,6 +9,10 @@ public class Flurfoerderzeug extends Fahrzeug
 	private double maxGewischt;
 	
 	
+	public double getMaxGewischt() {
+		return maxGewischt;
+	}
+
 	public String getWagenKategorie() 
 	{
 		return wagenKategorie;
