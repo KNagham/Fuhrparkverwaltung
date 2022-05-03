@@ -29,8 +29,8 @@ public class Main {
 		//CreateElektromotor();
 		//FahrzeugDataController.ShowElektromotorsFahrzeug();
 		//Hybrid hybrid = new Hybrid ("Tesla",1,new Date(),233.44,k,"Super Charger",500.00,"Benzin");
-		CreateHybrid();
-		FahrzeugDataController.ShowHybridFahrzeug();
+		//CreateHybrid();
+		//FahrzeugDataController.ShowHybridFahrzeug();
 		//CreateKraftmotor();
 		//FahrzeugDataController.ShowKraftmotorsFahrzeug();
 		/*Date x = GetDateInput();
@@ -38,7 +38,11 @@ public class Main {
 		/*double y = GetDoubleInput();
 		System.out.println(y);*/
 		ProduktionMitarbeiter N = new ProduktionMitarbeiter ("Nagham", true);
-		
+		ProduktionMitarbeiter E = new ProduktionMitarbeiter ("Emy", false);
+		MitarbeiterDataController.AddMitarbeiter(N);
+		MitarbeiterDataController.AddMitarbeiter(E);
+		CreateFlurfoerderzeug();
+		FahrzeugDataController.ShowFlurfoerderFahrzeug();
 		
 		
 		//ProduktionMitarbeiter N = new ProduktionMitarbeiter ("Nagham", true);
@@ -98,6 +102,79 @@ public class Main {
 			}
 			MitarbeiterDataController.ShowAllMitarbeiter();
 		}
+	}
+	
+	
+	private static void CreateFlurfoerderzeug()
+	{
+		String marke;
+		int abschreibungsDauer;
+		Date kaufdatum;
+		double monatlicheKosten;
+		
+		ProduktionMitarbeiter produktionMitarbeiter = null;
+		double maxGewischt;
+		boolean istMotorisiert;
+		
+		
+		Printer("To Create Flurfoerderzeug you need to fill the following field");
+		
+		Printer("Enter Marke: ");
+		marke = GetStringInput();
+		
+		Printer("Enter die Abschreibungsdauer: ");
+		abschreibungsDauer = GetIntInput();
+		
+		Printer("Enter den Kaufdatum: ");
+		kaufdatum = GetDateInput();
+		
+		Printer("Enter die monatliche Kosten : ");
+		monatlicheKosten = GetDoubleInput();
+		
+
+		
+		Printer("Enter MaxGewischt in Ton:");
+		maxGewischt = GetDoubleInput();
+		
+		
+		Printer("Wählen Sie den Flurforederzeugtyp aus");
+		ShowOptions("Motorisiert","Nicht Motorisiert");
+		istMotorisiert = GetIntInput(2) == 1 ? true : false;
+		
+		Printer("Wählen Sie ID des ProduktionMitarbeiter aus: ");
+        ArrayList<ProduktionMitarbeiter> tempList = MitarbeiterDataController.getListProduktionMitarbeiter();
+        boolean found = false;
+        while(produktionMitarbeiter == null)
+        {
+            MitarbeiterDataController.ShowProduktionMitarbeiter();
+            int choice = GetIntInput();
+            for(ProduktionMitarbeiter tempMitarbieter : tempList)
+            {
+                if(tempMitarbieter.getId() == choice && tempMitarbieter instanceof ProduktionMitarbeiter)
+                {
+                	if(istMotorisiert && tempMitarbieter.isStaplerschein() || !istMotorisiert) 
+                	{
+                    	produktionMitarbeiter = tempMitarbieter;
+                        found = true;
+                        break;
+                	}
+                }
+            }
+            if(!found && !istMotorisiert)
+            {
+                Printer("Please Select correct mitarbeiter");
+            }
+            if(!found && istMotorisiert)
+            {
+                Printer("Please Select correct mitarbeiter, der schein hat");
+            }
+	    }	
+		
+		
+		
+		
+		Flurfoerderzeug temp = new Flurfoerderzeug(marke, abschreibungsDauer, kaufdatum, maxGewischt, produktionMitarbeiter, maxGewischt, found);
+		FahrzeugDataController.AddFahrzeug(temp);
 	}
 	
 	private static void CreateElektromotor()

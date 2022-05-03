@@ -12,6 +12,19 @@ public class MitarbeiterDataController
 	{
 		return listMitarbeiter;
 	}
+	
+	public static ArrayList<ProduktionMitarbeiter> getListProduktionMitarbeiter() 
+	{
+		ArrayList<ProduktionMitarbeiter> temp = new ArrayList<ProduktionMitarbeiter>();
+		for(Mitarbeiter obj : listMitarbeiter)
+		{
+			if(obj instanceof ProduktionMitarbeiter)
+			{
+				temp.add((ProduktionMitarbeiter) obj);
+			}
+		}
+		return temp;
+	}
 	public static Mitarbeiter GetOnID(int id)
 	{
 		return listMitarbeiter.get(id-1);

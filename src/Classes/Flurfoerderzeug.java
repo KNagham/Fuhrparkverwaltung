@@ -7,8 +7,13 @@ public class Flurfoerderzeug extends Fahrzeug
 	private String wagenKategorie;
 	private ProduktionMitarbeiter pm;
 	private double maxGewischt;
+	private boolean istMotorisiert;
 	
 	
+	public boolean isIstMotorisiert() {
+		return istMotorisiert;
+	}
+
 	public double getMaxGewischt() {
 		return maxGewischt;
 	}
@@ -24,12 +29,13 @@ public class Flurfoerderzeug extends Fahrzeug
 	}
 	
 	public Flurfoerderzeug(String marke,int abschreibungsDauer,Date kaufdatum,
-			double monatlicheKosten, String wagen,ProduktionMitarbeiter pm,double maxGewischt)
+			double monatlicheKosten,ProduktionMitarbeiter pm,double maxGewischt,boolean istMotorisiert)
 	{
 		super(marke,abschreibungsDauer,kaufdatum,monatlicheKosten);
-		this.wagenKategorie= wagen;
+		this.wagenKategorie= "Flurfoerderzeug";
 		this.pm= pm;
 		this.maxGewischt = maxGewischt;
+		this.istMotorisiert = istMotorisiert;
 	}
 
 	
