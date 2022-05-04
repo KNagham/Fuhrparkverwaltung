@@ -18,14 +18,16 @@ public class Main {
 
 	public static void main(String[] args) 
 	{
-		//Transportfahrzeug transport= new Transportfahrzeug("Tesla", 1, new Date(), 178.96, "Transport");
-		//FahrzeugDataController.AddFahrzeug(transport);
+		
+		Transportfahrzeug transport= new Transportfahrzeug("Tesla", 1, new Date(), 178.96, "Transport");
+		FahrzeugDataController.AddFahrzeug(transport);
 		//CreateTransport();
 		//FahrzeugDataController.ShowTransportFahrzeug();
-		
+		/*
 		Mitarbeiter k = new Mitarbeiter("Khaled");
 		Elektromotor elektromotor = new Elektromotor("Tesla",1,new Date(),233.44,k,500.00,"Super Charger");
 		MitarbeiterDataController.AddMitarbeiter(k);
+		*/
 		//CreateElektromotor();
 		//FahrzeugDataController.ShowElektromotorsFahrzeug();
 		//Hybrid hybrid = new Hybrid ("Tesla",1,new Date(),233.44,k,"Super Charger",500.00,"Benzin");
@@ -37,22 +39,29 @@ public class Main {
 		System.out.println(x);*/
 		/*double y = GetDoubleInput();
 		System.out.println(y);*/
+		
+		/*
 		ProduktionMitarbeiter N = new ProduktionMitarbeiter ("Nagham", true);
 		ProduktionMitarbeiter E = new ProduktionMitarbeiter ("Emy", false);
 		MitarbeiterDataController.AddMitarbeiter(N);
 		MitarbeiterDataController.AddMitarbeiter(E);
 		CreateFlurfoerderzeug();
 		FahrzeugDataController.ShowFlurfoerderFahrzeug();
-		
+		*/
 		
 		//ProduktionMitarbeiter N = new ProduktionMitarbeiter ("Nagham", true);
 
+		/*
+		MitarbeiterDataController.AddMitarbeiter(k);
+		MitarbeiterDataController.AddMitarbeiter(N);
+		*/
+		
+		
+		Mitarbeiter k = new Mitarbeiter("Khaled");
+		ProduktionMitarbeiter N = new ProduktionMitarbeiter ("Nagham", true);
 		MitarbeiterDataController.AddMitarbeiter(k);
 		MitarbeiterDataController.AddMitarbeiter(N);
 		/*
-		Mitarbeiter k = new Mitarbeiter(1,"Khaled");
-		ProduktionMitarbeiter N = new ProduktionMitarbeiter (1,"Nagham", true);
-		
 		Transportfahrzeug transport= new Transportfahrzeug("Tesla", 1, new Date(), 178.96, "Transport");
 		Flurfoerderzeug flur = new Flurfoerderzeug("Tesla", 1, new Date(), 190.50, "Hubwagen", N);
 		Elektromotor elektromotor = new Elektromotor("Tesla",1,new Date(),233.44,"Elektro",k,500.00,"Super Charger");
@@ -88,6 +97,7 @@ public class Main {
 		
 		
 		//MitarbeiterDataController.ShowAllMitarbeiter();
+		/*
 		while(true)
 		{
 			ShowOptions("Add Mitarbeiter","Add Produktionmitarbeiter");
@@ -102,10 +112,14 @@ public class Main {
 			}
 			MitarbeiterDataController.ShowAllMitarbeiter();
 		}
+		*/
+		MenuSystem.ProgramLoop();
 	}
 	
 	
-	private static void CreateFlurfoerderzeug()
+
+	
+	public static void CreateFlurfoerderzeug()
 	{
 		String marke;
 		int abschreibungsDauer;
@@ -177,7 +191,7 @@ public class Main {
 		FahrzeugDataController.AddFahrzeug(temp);
 	}
 	
-	private static void CreateElektromotor()
+	public static void CreateElektromotor()
 	{
 		String marke;
 		int abschreibungsDauer;
@@ -238,7 +252,7 @@ public class Main {
 		 FahrzeugDataController.AddFahrzeug(temp);
 	}
 			
-	private static void CreateTransport()
+	public static void CreateTransport()
 	{
 		// benötigte Attribute 
 		String marke;
@@ -273,7 +287,7 @@ public class Main {
 		
 	}
 	
-	private static void CreateKraftmotor()
+	public static void CreateKraftmotor()
 	{
 		String marke;
 		int abschreibungsDauer;
@@ -330,7 +344,7 @@ public class Main {
 		 FahrzeugDataController.AddFahrzeug(temp);
 	}
 	
-	private static void CreateHybrid()
+	public static void CreateHybrid()
 	{
 		String marke;
 		int abschreibungsDauer;
@@ -401,7 +415,7 @@ public class Main {
 		 FahrzeugDataController.AddFahrzeug(temp);
 	}
 	
-	private static Date GetDateInput()
+	public static Date GetDateInput()
 	{
 		Scanner eingabeWert = new Scanner(System.in);
 		Date date = null;
@@ -446,7 +460,7 @@ public class Main {
 	
 	
 	
-	private static void CreateMitarbeiter()
+	public static void CreateMitarbeiter()
 	{
 		//Mitarbeiter Fields
 		String name;
@@ -460,7 +474,7 @@ public class Main {
 		Printer("You have added new Mitarbeiter");
 	}
 	
-	private static void CreateProduktionMitarbeiter()
+	public static void CreateProduktionMitarbeiter()
 	{
 		String name;
 		boolean hasSchein;
@@ -527,7 +541,7 @@ public class Main {
 	//Input system
 	
 	//Int input for menu
-	private static int GetIntInput(int max)
+	static int GetIntInput(int max)
 	{
 		//Printer("Bitte etwas von oben auswahlen [Only Digits]");
 		Scanner eingabeWert = new Scanner(System.in);
@@ -554,7 +568,7 @@ public class Main {
 		
 	}
 	
-	private static int GetIntInput()
+	public static int GetIntInput()
 	{
 		//Printer("Bitte etwas von oben auswahlen [Only Digits]");
 		Scanner eingabeWert = new Scanner(System.in);
@@ -579,7 +593,7 @@ public class Main {
 		
 	}
 	
-	private static String GetStringInput()
+	public static String GetStringInput()
 	{
 		Scanner eingabeWert = new Scanner(System.in);
 	
