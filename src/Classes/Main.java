@@ -18,19 +18,39 @@ public class Main {
 
 	public static void main(String[] args) 
 	{
+		ProduktionMitarbeiter N = new ProduktionMitarbeiter ("Nagham", true);
+		ProduktionMitarbeiter E = new ProduktionMitarbeiter ("Emy", false);
+		Mitarbeiter k = new Mitarbeiter("Khaled");
+		
+		MitarbeiterDataController.AddMitarbeiter(N);
+		MitarbeiterDataController.AddMitarbeiter(E);
+		MitarbeiterDataController.AddMitarbeiter(k);
+		
 		
 		Transportfahrzeug transport= new Transportfahrzeug("Tesla", 1, new Date(), 178.96, "Transport");
+		Flurfoerderzeug flur = new Flurfoerderzeug("Tesla", 1, new Date(), 190.50, N, 190.5, true);
+		Elektromotor elektromotor = new Elektromotor("Tesla",1,new Date(),233.44,k,500.00,"Super Charger");
+		Kraftmotor karftmotor = new Kraftmotor("Toyota",2,new Date(),120.33,k,"Gas");
+		Hybrid hybrid = new Hybrid ("Tesla",1,new Date(),233.44,k,500.00,"Super Charger","Benzin");
+		
 		FahrzeugDataController.AddFahrzeug(transport);
+		FahrzeugDataController.AddFahrzeug(flur);
+		FahrzeugDataController.AddFahrzeug(elektromotor);
+		FahrzeugDataController.AddFahrzeug(karftmotor);
+		FahrzeugDataController.AddFahrzeug(hybrid);
+	
 		//CreateTransport();
 		//FahrzeugDataController.ShowTransportFahrzeug();
-		/*
-		Mitarbeiter k = new Mitarbeiter("Khaled");
-		Elektromotor elektromotor = new Elektromotor("Tesla",1,new Date(),233.44,k,500.00,"Super Charger");
-		MitarbeiterDataController.AddMitarbeiter(k);
-		*/
+		
+		
+		
+		
+		
 		//CreateElektromotor();
 		//FahrzeugDataController.ShowElektromotorsFahrzeug();
-		//Hybrid hybrid = new Hybrid ("Tesla",1,new Date(),233.44,k,"Super Charger",500.00,"Benzin");
+		
+		
+		
 		//CreateHybrid();
 		//FahrzeugDataController.ShowHybridFahrzeug();
 		//CreateKraftmotor();
@@ -40,52 +60,28 @@ public class Main {
 		/*double y = GetDoubleInput();
 		System.out.println(y);*/
 		
-		/*
-		ProduktionMitarbeiter N = new ProduktionMitarbeiter ("Nagham", true);
-		ProduktionMitarbeiter E = new ProduktionMitarbeiter ("Emy", false);
-		MitarbeiterDataController.AddMitarbeiter(N);
-		MitarbeiterDataController.AddMitarbeiter(E);
-		CreateFlurfoerderzeug();
-		FahrzeugDataController.ShowFlurfoerderFahrzeug();
-		*/
-		
-		//ProduktionMitarbeiter N = new ProduktionMitarbeiter ("Nagham", true);
-
-		/*
-		MitarbeiterDataController.AddMitarbeiter(k);
-		MitarbeiterDataController.AddMitarbeiter(N);
-		*/
 		
 		
-		Mitarbeiter k = new Mitarbeiter("Khaled");
-		ProduktionMitarbeiter N = new ProduktionMitarbeiter ("Nagham", true);
-		MitarbeiterDataController.AddMitarbeiter(k);
-		MitarbeiterDataController.AddMitarbeiter(N);
-		/*
-		Transportfahrzeug transport= new Transportfahrzeug("Tesla", 1, new Date(), 178.96, "Transport");
-		Flurfoerderzeug flur = new Flurfoerderzeug("Tesla", 1, new Date(), 190.50, "Hubwagen", N);
-		Elektromotor elektromotor = new Elektromotor("Tesla",1,new Date(),233.44,"Elektro",k,500.00,"Super Charger");
-		Kraftmotor karftmotor = new Kraftmotor("Toyota",2,new Date(),120.33,"Kraftmotor",k,"Gas");
-		Hybrid hybrid = new Hybrid ("Tesla",1,new Date(),233.44,"Hybrid",k,"Super Charger",500.00,"Benzin");
+		
+		//CreateFlurfoerderzeug();
+		
+		
+		
+		
+		
 		
 		//Test mitarbeiter
-		MitarbeiterDataController.AddMitarbeiter(k);
-		MitarbeiterDataController.AddMitarbeiter(N);
 		
+		/*
 		MitarbeiterDataController.ShowAllMitarbeiter();
 		MitarbeiterDataController.ShowMitarbeiter();
 		MitarbeiterDataController.ShowProduktionMitarbeiter();
 		
 		MitarbeiterDataController.ShowAllMitarbeiter();
-		
+		*/
 		
 		//Test fahrzeug
-		FahrzeugDataController.AddFahrzeug(transport);
-		FahrzeugDataController.AddFahrzeug(flur);
-		FahrzeugDataController.AddFahrzeug(elektromotor); 
-		FahrzeugDataController.AddFahrzeug(karftmotor); 
-		FahrzeugDataController.AddFahrzeug(hybrid);
-						
+		/*
 		FahrzeugDataController.ShowAllFahrzeuge();
 		
 		FahrzeugDataController.ShowHybridFahrzeug();
@@ -183,12 +179,9 @@ public class Main {
                 Printer("Please Select correct mitarbeiter, der schein hat");
             }
 	    }	
-		
-		
-		
-		
 		Flurfoerderzeug temp = new Flurfoerderzeug(marke, abschreibungsDauer, kaufdatum, maxGewischt, produktionMitarbeiter, maxGewischt, found);
 		FahrzeugDataController.AddFahrzeug(temp);
+		Printer(temp.getMarke()+ " "+temp.getAbschreibungsdauer()+" "+temp.getKaufdatum()+" "+temp.getMonatlicheKosten()+" "+temp.getWagenKategorie() + " " +temp.getPm().getName());
 	}
 	
 	public static void CreateElektromotor()
@@ -250,6 +243,7 @@ public class Main {
 	     akkuLader = ENUMS.ElektromotorAkkuLader.values()[GetIntInput(4) - 1].toString();
 		 Elektromotor temp = new Elektromotor(marke,abschreibungsDauer,kaufdatum,monatlicheKosten,mitarbeiter,akkuKapazitaet,akkuLader);
 		 FahrzeugDataController.AddFahrzeug(temp);
+		 Printer(temp.getMarke()+ " "+temp.getAbschreibungsdauer()+" "+temp.getKaufdatum()+" "+temp.getMonatlicheKosten()+" "+temp.getWagenKategorie()+" "+temp.getMitarbeiter().getName()+" "+temp.getAkkuKapazitaet() + " " +temp.getAkkuLader() + " ");
 	}
 			
 	public static void CreateTransport()
@@ -284,6 +278,7 @@ public class Main {
 		typ = ENUMS.TransportTyp.values()[GetIntInput(4) - 1].toString();
 		Transportfahrzeug temp = new Transportfahrzeug(marke,abschreibungsDauer,kaufdatum,monatlicheKosten,typ);
 		FahrzeugDataController.AddFahrzeug(temp);
+		Printer(temp.getMarke()+ " "+temp.getAbschreibungsdauer()+" "+temp.getKaufdatum()+" "+temp.getMonatlicheKosten()+" "+temp.getTyp());
 		
 	}
 	
@@ -342,6 +337,7 @@ public class Main {
 	     treibstoff = ENUMS.KraftmotorTreibstoff.values()[GetIntInput(3) - 1].toString();
 	     Kraftmotor temp = new Kraftmotor(marke,abschreibungsDauer,kaufdatum,monatlicheKosten,mitarbeiter,treibstoff);
 		 FahrzeugDataController.AddFahrzeug(temp);
+		 Printer(temp.getMarke()+ " "+temp.getAbschreibungsdauer()+" "+temp.getKaufdatum()+" "+temp.getMonatlicheKosten()+" "+temp.getWagenKategorie()+" "+temp.getMitarbeiter().getName()+" "+temp.getTreibstoff());
 	}
 	
 	public static void CreateHybrid()
@@ -413,6 +409,7 @@ public class Main {
 	     treibstoff = ENUMS.KraftmotorTreibstoff.values()[GetIntInput(3) - 1].toString();
 		 Hybrid temp = new Hybrid(marke,abschreibungsDauer,kaufdatum,monatlicheKosten,mitarbeiter,akkuKapazitaet,akkuLader,treibstoff);
 		 FahrzeugDataController.AddFahrzeug(temp);
+		 Printer(temp.getMarke()+ " "+temp.getAbschreibungsdauer()+" "+temp.getKaufdatum()+" "+temp.getMonatlicheKosten()+" "+temp.getWagenKategorie()+" "+temp.getMitarbeiter().getName()+" "+temp.getAkkuKapazitaet() + " " +temp.getAkkuLader() + " " +temp.getTreibstoff());
 	}
 	
 	public static Date GetDateInput()
@@ -472,6 +469,7 @@ public class Main {
 		Mitarbeiter temp = new Mitarbeiter(name);
 		MitarbeiterDataController.AddMitarbeiter(temp);
 		Printer("You have added new Mitarbeiter");
+		Printer(temp.getId() + " " + temp.getName());
 	}
 	
 	public static void CreateProduktionMitarbeiter()
@@ -500,6 +498,7 @@ public class Main {
 		ProduktionMitarbeiter temp = new ProduktionMitarbeiter(name,hasSchein);
 		MitarbeiterDataController.AddMitarbeiter(temp);
 		Printer("You have added ProduktionMitarbeiter");
+		Printer(temp.getId() + " " + temp.getName()+ " "+ (temp.isStaplerschein() ? HasSchein.JA : HasSchein.NEIN ));
 	}
 
 	public static void Welcome()
