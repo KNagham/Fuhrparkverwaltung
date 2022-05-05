@@ -36,12 +36,12 @@ public class MitarbeiterDataController
 		{
 			if(m instanceof ProduktionMitarbeiter)
 			{
-				Main.Printer(((ProduktionMitarbeiter)m).getId() + " " + ((ProduktionMitarbeiter)m).getName()+ " "+ (((ProduktionMitarbeiter)m).isStaplerschein() ? HasSchein.JA : HasSchein.NEIN) );
+				Main.Printer("ID: "+((ProduktionMitarbeiter)m).getId() + " | " + "Name: "+((ProduktionMitarbeiter)m).getName()+ " | "+ (((ProduktionMitarbeiter)m).isStaplerschein() ? HasSchein.JA : HasSchein.NEIN) );
 				continue;
 			}
 			if(m instanceof Mitarbeiter)
 			{
-				Main.Printer(((Mitarbeiter)m).getId() + " " + ((Mitarbeiter)m).getName());
+				Main.Printer("ID: "+((Mitarbeiter)m).getId() + " | " + "Name: "+((Mitarbeiter)m).getName());
 			}
 			
 		}
@@ -54,7 +54,7 @@ public class MitarbeiterDataController
 		{
 			if(pm instanceof ProduktionMitarbeiter)
 			{
-				Main.Printer(((ProduktionMitarbeiter)pm).getId() + " " + ((ProduktionMitarbeiter)pm).getName()+ " "+ ( ((ProduktionMitarbeiter)pm).isStaplerschein() ? HasSchein.JA : HasSchein.NEIN ) );
+				Main.Printer("ID: "+((ProduktionMitarbeiter)pm).getId() + " | " +"Name: "+((ProduktionMitarbeiter)pm).getName()+ " | "+ ( ((ProduktionMitarbeiter)pm).isStaplerschein() ? HasSchein.JA : HasSchein.NEIN ) );
 			}
 		}
 	}
@@ -65,7 +65,7 @@ public class MitarbeiterDataController
 			{
 				if(M instanceof Mitarbeiter && !(M instanceof ProduktionMitarbeiter) )
 				{
-					Main.Printer(((Mitarbeiter)M).getId() + " " + ((Mitarbeiter)M).getName() );
+					Main.Printer("ID: "+((Mitarbeiter)M).getId() + " | " + "Name: "+((Mitarbeiter)M).getName() );
 				}
 			}
 	}

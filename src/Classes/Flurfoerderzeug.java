@@ -5,8 +5,8 @@ import java.util.Date;
 public class Flurfoerderzeug extends Fahrzeug 
 {
 	private String wagenKategorie;
-	private ProduktionMitarbeiter pm;
-	private double maxGewischt;
+	private ProduktionMitarbeiter produktionMitarbeiter;
+	private double maxGewicht;
 	private boolean istMotorisiert;
 	
 	
@@ -14,8 +14,8 @@ public class Flurfoerderzeug extends Fahrzeug
 		return istMotorisiert;
 	}
 
-	public double getMaxGewischt() {
-		return maxGewischt;
+	public double getMaxGewicht() {
+		return maxGewicht;
 	}
 
 	public String getWagenKategorie() 
@@ -23,18 +23,18 @@ public class Flurfoerderzeug extends Fahrzeug
 		return wagenKategorie;
 	}
 
-	public ProduktionMitarbeiter getPm() 
+	public ProduktionMitarbeiter getProduktionMitarbeiter() 
 	{
-		return pm;
+		return produktionMitarbeiter;
 	}
 	
 	public Flurfoerderzeug(String marke,int abschreibungsDauer,Date kaufdatum,
-			double monatlicheKosten,ProduktionMitarbeiter pm,double maxGewischt,boolean istMotorisiert)
+			double monatlicheKosten,ProduktionMitarbeiter produktionMitarbeiter,double maxGewicht,boolean istMotorisiert)
 	{
 		super(marke,abschreibungsDauer,kaufdatum,monatlicheKosten);
 		this.wagenKategorie= "Flurfoerderzeug";
-		this.pm= pm;
-		this.maxGewischt = maxGewischt;
+		this.produktionMitarbeiter= produktionMitarbeiter;
+		this.maxGewicht = maxGewicht;
 		this.istMotorisiert = istMotorisiert;
 	}
 

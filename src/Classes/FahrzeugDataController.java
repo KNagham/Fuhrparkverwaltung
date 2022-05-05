@@ -12,23 +12,23 @@ public class FahrzeugDataController
 		{
 			if(x instanceof Transportfahrzeug)
 			{
-				Main.Printer( ((Transportfahrzeug)x).getMarke()+ " "+((Transportfahrzeug)x).getAbschreibungsdauer()+" "+((Transportfahrzeug)x).getKaufdatum()+" "+((Transportfahrzeug)x).getMonatlicheKosten()+" "+((Transportfahrzeug)x).getTyp());
+				Main.Printer("Marke: " +((Transportfahrzeug)x).getMarke()+ " | "+"Abschreibungsdauer: "+((Transportfahrzeug)x).getAbschreibungsdauer()+" | "+"Kaufdatum: "+((Transportfahrzeug)x).getKaufdatum()+" | "+"Monatliche Kosten: "+((Transportfahrzeug)x).getMonatlicheKosten()+" | "+"Fahrzeug Typ & Gewicht: "+((Transportfahrzeug)x).getTyp());
 			}
 			if(x instanceof Flurfoerderzeug)
 			{
-				Main.Printer( ((Flurfoerderzeug)x).getMarke()+ " "+((Flurfoerderzeug)x).getAbschreibungsdauer()+" "+((Flurfoerderzeug)x).getKaufdatum()+" "+((Flurfoerderzeug)x).getMonatlicheKosten()+" "+((Flurfoerderzeug)x).getWagenKategorie() + " " + ((Flurfoerderzeug)x).getPm().getName());
+				Main.Printer("Marke: "+((Flurfoerderzeug)x).getMarke()+ " | "+"Abschreibungsdauer: "+((Flurfoerderzeug)x).getAbschreibungsdauer()+" | "+"Kaufdatum: "+((Flurfoerderzeug)x).getKaufdatum()+" | "+"Monatliche Kosten: "+((Flurfoerderzeug)x).getMonatlicheKosten()+" | "+"Fahrzeug Typ: "+((Flurfoerderzeug)x).getWagenKategorie() + " | " +"Produktion Mitarbeiter Name: "+((Flurfoerderzeug)x).getProduktionMitarbeiter().getName());
 			}
 			if(x instanceof Elektromotor)
 			{
-				Main.Printer( ((Elektromotor)x).getMarke()+ " "+((Elektromotor)x).getAbschreibungsdauer()+" "+((Elektromotor)x).getKaufdatum()+" "+((Elektromotor)x).getMonatlicheKosten()+" "+((Elektromotor)x).getWagenKategorie()+" "+((Elektromotor)x).getMitarbeiter().getName()+" "+ ((Elektromotor) x).getAkkuKapazitaet() + " " +((Elektromotor) x).getAkkuLader() + " ");
+				Main.Printer("Marke: "+((Elektromotor)x).getMarke()+ " "+"Abschreibungsdauer: "+((Elektromotor)x).getAbschreibungsdauer()+" | "+"Kaufdatum: "+((Elektromotor)x).getKaufdatum()+" | "+"Monatliche Kosten: "+((Elektromotor)x).getMonatlicheKosten()+" | "+"Fahrzeug Typ: "+((Elektromotor)x).getWagenKategorie()+" | "+"Mitarbeiter Name: "+((Elektromotor)x).getMitarbeiter().getName()+" | "+"Akku Kapazität: "+((Elektromotor) x).getAkkuKapazitaet() + " | " +"Akku Lader: "+((Elektromotor) x).getAkkuLader());
 			}
 			if(x instanceof Kraftmotor)
 			{
-				Main.Printer( ((Kraftmotor)x).getMarke()+ " "+((Kraftmotor)x).getAbschreibungsdauer()+" "+((Kraftmotor)x).getKaufdatum()+" "+((Kraftmotor)x).getMonatlicheKosten()+" "+((Kraftmotor)x).getWagenKategorie()+" "+((Kraftmotor)x).getMitarbeiter().getName()+" "+((Kraftmotor) x).getTreibstoff());
+				Main.Printer("Marke: "+((Kraftmotor)x).getMarke()+ " | "+"Abschreibungsdauer: "+((Kraftmotor)x).getAbschreibungsdauer()+" | "+"Kaufdatum: "+((Kraftmotor)x).getKaufdatum()+" | "+"Monatliche Kosten: "+((Kraftmotor)x).getMonatlicheKosten()+" | "+"Fahrzeug Typ: "+((Kraftmotor)x).getWagenKategorie()+" | "+"Mitarbeiter Name: "+((Kraftmotor)x).getMitarbeiter().getName()+" | "+"Treibstoff: "+((Kraftmotor) x).getTreibstoff());
 			}
 			if(x instanceof Hybrid)
 			{
-				Main.Printer( ((Hybrid)x).getMarke()+ " "+((Hybrid)x).getAbschreibungsdauer()+" "+((Hybrid)x).getKaufdatum()+" "+((Hybrid)x).getMonatlicheKosten()+" "+((Hybrid)x).getWagenKategorie()+" "+((Hybrid)x).getMitarbeiter().getName()+" "+((Hybrid) x).getAkkuKapazitaet() + " " + ((Hybrid) x).getAkkuLader() + " " + ((Hybrid) x).getTreibstoff());
+				Main.Printer("Marke: "+((Hybrid)x).getMarke()+ " | "+"Abschreibungsdauer: "+((Hybrid)x).getAbschreibungsdauer()+" | "+"Kaufdatum: "+((Hybrid)x).getKaufdatum()+" | "+"Monatliche Kosten: "+((Hybrid)x).getMonatlicheKosten()+" | "+"Fahrzeug Typ: "+((Hybrid)x).getWagenKategorie()+" | "+"Mitarbeiter Name: "+((Hybrid)x).getMitarbeiter().getName()+" | "+"Akku Kapazität: "+((Hybrid) x).getAkkuKapazitaet() + " | " +"Akku Lader: "+((Hybrid) x).getAkkuLader() + " | " + "Treibstoff: "+((Hybrid) x).getTreibstoff());
 			}
 				
 		}
@@ -40,7 +40,7 @@ public class FahrzeugDataController
 		{
 			if(e instanceof Elektromotor)
 			{
-				Main.Printer( ((Elektromotor)e).getMarke()+ " "+((Elektromotor)e).getAbschreibungsdauer()+" "+((Elektromotor)e).getKaufdatum()+" "+((Elektromotor)e).getMonatlicheKosten()+" "+((Elektromotor)e).getWagenKategorie()+" "+((Elektromotor)e).getMitarbeiter().getName()+" "+ ((Elektromotor)e).getAkkuKapazitaet() + " " +((Elektromotor)e).getAkkuLader() + " ");
+				Main.Printer("Marke: "+((Elektromotor)e).getMarke()+ " | "+"Abschreibungsdauer: "+((Elektromotor)e).getAbschreibungsdauer()+" | "+"Kaufdatum: "+((Elektromotor)e).getKaufdatum()+" | "+"Monatliche Kosten: "+((Elektromotor)e).getMonatlicheKosten()+" | "+"Fahrzeug Typ: "+((Elektromotor)e).getWagenKategorie()+" | "+"Mitarbeiter Name: "+((Elektromotor)e).getMitarbeiter().getName()+" | "+"Akku Kapazität: "+((Elektromotor)e).getAkkuKapazitaet() + " | " +"Akku Lader: "+((Elektromotor)e).getAkkuLader());
 			}
 		}
 	}
@@ -51,7 +51,7 @@ public class FahrzeugDataController
 		{
 			if(k instanceof Kraftmotor)
 			{
-				Main.Printer( ((Kraftmotor)k).getMarke()+ " "+((Kraftmotor)k).getAbschreibungsdauer()+" "+((Kraftmotor)k).getKaufdatum()+" "+((Kraftmotor)k).getMonatlicheKosten()+" "+((Kraftmotor)k).getWagenKategorie()+" "+((Kraftmotor)k).getMitarbeiter().getName()+" "+((Kraftmotor)k).getTreibstoff());
+				Main.Printer("Marke: "+((Kraftmotor)k).getMarke()+ " | "+"Abschreibungsdauer: "+((Kraftmotor)k).getAbschreibungsdauer()+" | "+"Kaufdatum: "+((Kraftmotor)k).getKaufdatum()+" | "+"Monatliche Kosten: "+((Kraftmotor)k).getMonatlicheKosten()+" | "+"Fahrzeug Typ: "+((Kraftmotor)k).getWagenKategorie()+" | "+"Mitarbeiter Name: "+((Kraftmotor)k).getMitarbeiter().getName()+" | "+"Treibstoff: "+((Kraftmotor)k).getTreibstoff());
 			}
 		}
 	}
@@ -62,7 +62,7 @@ public class FahrzeugDataController
 		{
 			if(h instanceof Hybrid)
 			{
-				Main.Printer( ((Hybrid)h).getMarke()+ " "+((Hybrid)h).getAbschreibungsdauer()+" "+((Hybrid)h).getKaufdatum()+" "+((Hybrid)h).getMonatlicheKosten()+" "+((Hybrid)h).getWagenKategorie()+" "+((Hybrid)h).getMitarbeiter().getName()+" "+((Hybrid)h).getAkkuKapazitaet() + " " + ((Hybrid)h).getAkkuLader() + " " + ((Hybrid) h).getTreibstoff());
+				Main.Printer("Marke: "+((Hybrid)h).getMarke()+ " | "+"Abschreibungsdauer: "+((Hybrid)h).getAbschreibungsdauer()+" | "+"Kaufdatum: "+((Hybrid)h).getKaufdatum()+" | "+"Monatliche Kosten: "+((Hybrid)h).getMonatlicheKosten()+" | "+"Fahrzeug Typ: "+((Hybrid)h).getWagenKategorie()+" | "+"Mitarbeiter Name: "+((Hybrid)h).getMitarbeiter().getName()+" | "+"Akku Kapazität: "+((Hybrid)h).getAkkuKapazitaet() + " | " +"Akku Lader: "+((Hybrid)h).getAkkuLader() + " | " +"Treibstoff: "+((Hybrid) h).getTreibstoff());
 			}
 		}
 	}
@@ -73,7 +73,7 @@ public class FahrzeugDataController
 		{
 			if(t instanceof Transportfahrzeug)
 			{
-				Main.Printer( ((Transportfahrzeug)t).getMarke()+ " "+((Transportfahrzeug)t).getAbschreibungsdauer()+" "+((Transportfahrzeug)t).getKaufdatum()+" "+((Transportfahrzeug)t).getMonatlicheKosten()+" "+((Transportfahrzeug)t).getTyp());
+				Main.Printer("Marke: "+((Transportfahrzeug)t).getMarke()+ " | "+"Abschreibungsdauer: "+((Transportfahrzeug)t).getAbschreibungsdauer()+" | "+"Kaufdatum: "+((Transportfahrzeug)t).getKaufdatum()+" | "+"Monatliche Kosten: "+((Transportfahrzeug)t).getMonatlicheKosten()+" | "+"Fahrzeug Typ & Gewicht: "+((Transportfahrzeug)t).getTyp());
 			}
 		}
 	}
@@ -84,7 +84,7 @@ public class FahrzeugDataController
 		{
 			if(f instanceof Flurfoerderzeug)
 			{
-				Main.Printer( ((Flurfoerderzeug)f).getMarke()+ " "+((Flurfoerderzeug)f).getAbschreibungsdauer()+" "+((Flurfoerderzeug)f).getKaufdatum()+" "+((Flurfoerderzeug)f).getMonatlicheKosten()+" "+((Flurfoerderzeug)f).getWagenKategorie() + " " + ((Flurfoerderzeug)f).getPm().getName());
+				Main.Printer("Marke: "+((Flurfoerderzeug)f).getMarke()+ " | "+"Abschreibungsdauer: "+((Flurfoerderzeug)f).getAbschreibungsdauer()+" | "+"Kaufdatum: "+((Flurfoerderzeug)f).getKaufdatum()+" | "+"Monatliche Kosten: "+((Flurfoerderzeug)f).getMonatlicheKosten()+" | "+"Fahrzeug Typ: "+((Flurfoerderzeug)f).getWagenKategorie() + " | " +"Produnktion Mitarbeiter Name:"+((Flurfoerderzeug)f).getProduktionMitarbeiter().getName());
 			}
 		}
 	}

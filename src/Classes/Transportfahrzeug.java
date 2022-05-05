@@ -9,11 +9,7 @@ import java.util.Date;
 		{
 			return typ;
 		}
-
-
-		
-		
-		
+	
 		public Transportfahrzeug(String marke,int abschreibungsDauer,Date kaufdatum,
 				double monatlicheKosten, String typ)
 		  {

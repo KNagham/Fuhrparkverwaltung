@@ -18,10 +18,10 @@ public abstract class Firmenwagen extends Fahrzeug
 	}
 	
 	public Firmenwagen(String marke,int abschreibungsDauer,Date kaufdatum,
-				double monatlicheKosten, String wagen, Mitarbeiter mitarbeiter)
+				double monatlicheKosten, String wagenKategorie, Mitarbeiter mitarbeiter)
 	  {
 		super(marke,abschreibungsDauer,kaufdatum,monatlicheKosten);
-		this.wagenKategorie= wagen;
+		this.wagenKategorie= wagenKategorie;
 		this.mitarbeiter= mitarbeiter;
 	  }
 

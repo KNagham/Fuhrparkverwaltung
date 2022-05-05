@@ -18,17 +18,17 @@ public class Main {
 
 	public static void main(String[] args) 
 	{
-		ProduktionMitarbeiter N = new ProduktionMitarbeiter ("Nagham", true);
-		ProduktionMitarbeiter E = new ProduktionMitarbeiter ("Emy", false);
+		ProduktionMitarbeiter n = new ProduktionMitarbeiter ("Nagham", true);
+		ProduktionMitarbeiter e = new ProduktionMitarbeiter ("Emy", false);
 		Mitarbeiter k = new Mitarbeiter("Khaled");
 		
-		MitarbeiterDataController.AddMitarbeiter(N);
-		MitarbeiterDataController.AddMitarbeiter(E);
+		MitarbeiterDataController.AddMitarbeiter(n);
+		MitarbeiterDataController.AddMitarbeiter(e);
 		MitarbeiterDataController.AddMitarbeiter(k);
 		
 		
 		Transportfahrzeug transport= new Transportfahrzeug("Tesla", 1, new Date(), 178.96, "Transport");
-		Flurfoerderzeug flur = new Flurfoerderzeug("Tesla", 1, new Date(), 190.50, N, 190.5, true);
+		Flurfoerderzeug flur = new Flurfoerderzeug("Tesla", 1, new Date(), 190.50, n, 190.5, true);
 		Elektromotor elektromotor = new Elektromotor("Tesla",1,new Date(),233.44,k,500.00,"Super Charger");
 		Kraftmotor karftmotor = new Kraftmotor("Toyota",2,new Date(),120.33,k,"Gas");
 		Hybrid hybrid = new Hybrid ("Tesla",1,new Date(),233.44,k,500.00,"Super Charger","Benzin");
@@ -42,92 +42,90 @@ public class Main {
 		//CreateTransport();
 		//FahrzeugDataController.ShowTransportFahrzeug();
 		
-		
-		
-		
-		
 		//CreateElektromotor();
 		//FahrzeugDataController.ShowElektromotorsFahrzeug();
 		
-		
-		
 		//CreateHybrid();
 		//FahrzeugDataController.ShowHybridFahrzeug();
+		
 		//CreateKraftmotor();
 		//FahrzeugDataController.ShowKraftmotorsFahrzeug();
-		/*Date x = GetDateInput();
-		System.out.println(x);*/
-		/*double y = GetDoubleInput();
-		System.out.println(y);*/
-		
-		
-		
-		
+
 		//CreateFlurfoerderzeug();
-		
-		
-		
-		
-		
-		
+
 		//Test mitarbeiter
 		
-		/*
-		MitarbeiterDataController.ShowAllMitarbeiter();
-		MitarbeiterDataController.ShowMitarbeiter();
-		MitarbeiterDataController.ShowProduktionMitarbeiter();
-		
-		MitarbeiterDataController.ShowAllMitarbeiter();
+		/*MitarbeiterDataController.ShowMitarbeiter();
+		  MitarbeiterDataController.ShowProduktionMitarbeiter();
+		  MitarbeiterDataController.ShowAllMitarbeiter();
 		*/
-		
 		//Test fahrzeug
 		/*
 		FahrzeugDataController.ShowAllFahrzeuge();
-		
 		FahrzeugDataController.ShowHybridFahrzeug();
 		FahrzeugDataController.ShowKraftmotorsFahrzeug();
 		FahrzeugDataController.ShowElektromotorsFahrzeug();
 		FahrzeugDataController.ShowFlurfoerderFahrzeug();
 		FahrzeugDataController.ShowTransportFahrzeug();
 		*/
-		
-		
-		//MitarbeiterDataController.ShowAllMitarbeiter();
-		/*
-		while(true)
-		{
-			ShowOptions("Add Mitarbeiter","Add Produktionmitarbeiter");
-			int choice = GetIntInput(2);
-			if(choice == 1)
-			{
-				CreateMitarbeiter();
-			}
-			if(choice==2)
-			{
-				CreateProduktionMitarbeiter();
-			}
-			MitarbeiterDataController.ShowAllMitarbeiter();
-		}
-		*/
+		Welcome();
 		MenuSystem.ProgramLoop();
 	}
 	
-	
-
-	
-	public static void CreateFlurfoerderzeug()
+	public static void CreateMitarbeiter()
 	{
+		//Mitarbeiter Fields
+		String name;
+		
+		Printer("To Create Mitarbeiter you need to fill the follwing field");
+		Printer("Please Enter Name: ");
+		name = GetStringInput();
+
+		Mitarbeiter temp = new Mitarbeiter(name);
+		MitarbeiterDataController.AddMitarbeiter(temp);
+		Printer("You have added new Mitarbeiter");
+		Printer("ID: "+temp.getId() + " | " +"Name: "+temp.getName());
+	}
+	
+	public static void CreateProduktionMitarbeiter()
+	{
+		String name;
+		boolean hasSchein;
+		Printer("To Create Mitarbeiter you need to fill the follwing field");
+		
+		
+		Printer("Please Enter Name: ");
+		name = GetStringInput();
+		
+		
+		Printer("Please Select of the Followin: ");
+		
+		int counter = 1;
+		for(var x : HasSchein.values())
+		{
+			System.out.println(counter + ". " + x.toString());
+			counter++;
+		}
+		
+		
+		hasSchein = GetIntInput(2) == 1 ? true : false;
+		
+		ProduktionMitarbeiter temp = new ProduktionMitarbeiter(name,hasSchein);
+		MitarbeiterDataController.AddMitarbeiter(temp);
+		Printer("You have added ProduktionMitarbeiter");
+		Printer("ID: "+temp.getId()+ " | " +"Name: "+temp.getName()+ " | "+ (temp.isStaplerschein() ? HasSchein.JA : HasSchein.NEIN ));
+	}
+	
+	public static void CreateTransport()
+	{
+		// benötigte Attribute 
 		String marke;
 		int abschreibungsDauer;
 		Date kaufdatum;
 		double monatlicheKosten;
 		
-		ProduktionMitarbeiter produktionMitarbeiter = null;
-		double maxGewischt;
-		boolean istMotorisiert;
-		
-		
-		Printer("To Create Flurfoerderzeug you need to fill the following field");
+		String typ;
+		Printer("To Create Transport you need to fill the following field");
 		
 		Printer("Enter Marke: ");
 		marke = GetStringInput();
@@ -141,11 +139,47 @@ public class Main {
 		Printer("Enter die monatliche Kosten : ");
 		monatlicheKosten = GetDoubleInput();
 		
+		Printer("Wählen Sie eine LKW Typ aus: ");
+		int counter = 1;
+		for(var x : TransportTyp.values())
+		{
+			System.out.println(counter + ". " + x.toString());
+			counter++;
+		}
+		typ = ENUMS.TransportTyp.values()[GetIntInput(4) - 1].toString();
+		Transportfahrzeug temp = new Transportfahrzeug(marke,abschreibungsDauer,kaufdatum,monatlicheKosten,typ);
+		FahrzeugDataController.AddFahrzeug(temp);
+		Printer("Marke: "+temp.getMarke()+ " | "+"Abschreibungsdauer: "+temp.getAbschreibungsdauer()+" | "+"Kauf Datum: "+temp.getKaufdatum()+" | "+"Monatliche Kosten: "+temp.getMonatlicheKosten()+" | "+"Fahrzeug Typ & Gewicht: "+temp.getTyp());
+		
+	}
+	
+	public static void CreateFlurfoerderzeug()
+	{
+		String marke;
+		int abschreibungsDauer;
+		Date kaufdatum;
+		double monatlicheKosten;
+		
+		ProduktionMitarbeiter produktionMitarbeiter = null;
+		double maxGewicht;
+		boolean istMotorisiert;
 
+		Printer("To Create Flurförderzeug you need to fill the following field");
 		
+		Printer("Enter Marke: ");
+		marke = GetStringInput();
+		
+		Printer("Enter die Abschreibungsdauer: ");
+		abschreibungsDauer = GetIntInput();
+		
+		Printer("Enter den Kaufdatum: ");
+		kaufdatum = GetDateInput();
+		
+		Printer("Enter die monatliche Kosten : ");
+		monatlicheKosten = GetDoubleInput();
+	
 		Printer("Enter MaxGewischt in Ton:");
-		maxGewischt = GetDoubleInput();
-		
+		maxGewicht = GetDoubleInput();
 		
 		Printer("Wählen Sie den Flurforederzeugtyp aus");
 		ShowOptions("Motorisiert","Nicht Motorisiert");
@@ -179,9 +213,9 @@ public class Main {
                 Printer("Please Select correct mitarbeiter, der schein hat");
             }
 	    }	
-		Flurfoerderzeug temp = new Flurfoerderzeug(marke, abschreibungsDauer, kaufdatum, maxGewischt, produktionMitarbeiter, maxGewischt, found);
+		Flurfoerderzeug temp = new Flurfoerderzeug(marke, abschreibungsDauer, kaufdatum, monatlicheKosten, produktionMitarbeiter, maxGewicht, found);
 		FahrzeugDataController.AddFahrzeug(temp);
-		Printer(temp.getMarke()+ " "+temp.getAbschreibungsdauer()+" "+temp.getKaufdatum()+" "+temp.getMonatlicheKosten()+" "+temp.getWagenKategorie() + " " +temp.getPm().getName());
+		Printer("Marke: "+temp.getMarke()+ " | "+"Abschreibungsdauer: "+temp.getAbschreibungsdauer()+" | "+"Kauf Datum: "+temp.getKaufdatum()+" | "+"Monatliche Kosten: "+temp.getMonatlicheKosten()+" | "+"Fahrzeug Typ: "+temp.getWagenKategorie() + " | " +"Produktion Mitarbeiter Name: "+temp.getProduktionMitarbeiter().getName());
 	}
 	
 	public static void CreateElektromotor()
@@ -190,6 +224,7 @@ public class Main {
 		int abschreibungsDauer;
 		Date kaufdatum;
 		double monatlicheKosten;
+		
 		Mitarbeiter mitarbeiter = null;
 		double akkuKapazitaet;
 		String akkuLader;
@@ -243,51 +278,16 @@ public class Main {
 	     akkuLader = ENUMS.ElektromotorAkkuLader.values()[GetIntInput(4) - 1].toString();
 		 Elektromotor temp = new Elektromotor(marke,abschreibungsDauer,kaufdatum,monatlicheKosten,mitarbeiter,akkuKapazitaet,akkuLader);
 		 FahrzeugDataController.AddFahrzeug(temp);
-		 Printer(temp.getMarke()+ " "+temp.getAbschreibungsdauer()+" "+temp.getKaufdatum()+" "+temp.getMonatlicheKosten()+" "+temp.getWagenKategorie()+" "+temp.getMitarbeiter().getName()+" "+temp.getAkkuKapazitaet() + " " +temp.getAkkuLader() + " ");
+		 Printer("Marke: "+temp.getMarke()+" | "+"Abschreibungsdauer: "+temp.getAbschreibungsdauer()+" | "+"Kauf Datum: "+temp.getKaufdatum()+" | "+"Monatliche Kosten: "+temp.getMonatlicheKosten()+" | "+"Fahrzeug Typ: "+temp.getWagenKategorie()+" | "+"Mitarbeiter Name: "+temp.getMitarbeiter().getName()+" | "+"Akku Kapazität: "+temp.getAkkuKapazitaet() + " | " +"Akku Lader: "+temp.getAkkuLader());
 	}
-			
-	public static void CreateTransport()
-	{
-		// benötigte Attribute 
-		String marke;
-		int abschreibungsDauer;
-		Date kaufdatum;
-		double monatlicheKosten;
-		String typ;
-		Printer("To Create Transport you need to fill the following field");
-		
-		Printer("Enter Marke: ");
-		marke = GetStringInput();
-		
-		Printer("Enter die Abschreibungsdauer: ");
-		abschreibungsDauer = GetIntInput();
-		
-		Printer("Enter den Kaufdatum: ");
-		kaufdatum = GetDateInput();
-		
-		Printer("Enter die monatliche Kosten : ");
-		monatlicheKosten = GetDoubleInput();
-		
-		Printer("Wählen Sie eine LKW Typ aus: ");
-		int counter = 1;
-		for(var x : TransportTyp.values())
-		{
-			System.out.println(counter + ". " + x.toString());
-			counter++;
-		}
-		typ = ENUMS.TransportTyp.values()[GetIntInput(4) - 1].toString();
-		Transportfahrzeug temp = new Transportfahrzeug(marke,abschreibungsDauer,kaufdatum,monatlicheKosten,typ);
-		FahrzeugDataController.AddFahrzeug(temp);
-		Printer(temp.getMarke()+ " "+temp.getAbschreibungsdauer()+" "+temp.getKaufdatum()+" "+temp.getMonatlicheKosten()+" "+temp.getTyp());
-		
-	}
-	
+				
 	public static void CreateKraftmotor()
 	{
 		String marke;
 		int abschreibungsDauer;
 		Date kaufdatum;
 		double monatlicheKosten;
+		
 		Mitarbeiter mitarbeiter = null;
 		String treibstoff;
 		
@@ -337,7 +337,7 @@ public class Main {
 	     treibstoff = ENUMS.KraftmotorTreibstoff.values()[GetIntInput(3) - 1].toString();
 	     Kraftmotor temp = new Kraftmotor(marke,abschreibungsDauer,kaufdatum,monatlicheKosten,mitarbeiter,treibstoff);
 		 FahrzeugDataController.AddFahrzeug(temp);
-		 Printer(temp.getMarke()+ " "+temp.getAbschreibungsdauer()+" "+temp.getKaufdatum()+" "+temp.getMonatlicheKosten()+" "+temp.getWagenKategorie()+" "+temp.getMitarbeiter().getName()+" "+temp.getTreibstoff());
+		 Printer("Marke: "+temp.getMarke()+ " | "+"Abschreibungsdauer: "+temp.getAbschreibungsdauer()+" | "+"Kauf Datum: "+temp.getKaufdatum()+" | "+"Monatliche Kosten: "+temp.getMonatlicheKosten()+" | "+"Fahrzeug Typ: "+temp.getWagenKategorie()+" | "+"Mitarbeiter Name: "+temp.getMitarbeiter().getName()+" | "+"Treibstoff: "+temp.getTreibstoff());
 	}
 	
 	public static void CreateHybrid()
@@ -346,6 +346,7 @@ public class Main {
 		int abschreibungsDauer;
 		Date kaufdatum;
 		double monatlicheKosten;
+		
 		Mitarbeiter mitarbeiter= null;
 		String akkuLader;
 		double akkuKapazitaet;
@@ -409,40 +410,71 @@ public class Main {
 	     treibstoff = ENUMS.KraftmotorTreibstoff.values()[GetIntInput(3) - 1].toString();
 		 Hybrid temp = new Hybrid(marke,abschreibungsDauer,kaufdatum,monatlicheKosten,mitarbeiter,akkuKapazitaet,akkuLader,treibstoff);
 		 FahrzeugDataController.AddFahrzeug(temp);
-		 Printer(temp.getMarke()+ " "+temp.getAbschreibungsdauer()+" "+temp.getKaufdatum()+" "+temp.getMonatlicheKosten()+" "+temp.getWagenKategorie()+" "+temp.getMitarbeiter().getName()+" "+temp.getAkkuKapazitaet() + " " +temp.getAkkuLader() + " " +temp.getTreibstoff());
+		 Printer("Marke: "+temp.getMarke()+ " | "+"Abschreibungsdauer: "+temp.getAbschreibungsdauer()+" | "+"Kauf Datum: "+temp.getKaufdatum()+" | "+"Monatliche Kosten: "+temp.getMonatlicheKosten()+" | "+"Fahrzeug Typ: "+temp.getWagenKategorie()+" | "+"Mitarbeiter Name: "+temp.getMitarbeiter().getName()+" | "+"Akku Kapazität: "+temp.getAkkuKapazitaet()+ " | " +"Akku Lader: "+temp.getAkkuLader() + " | " +"Treibstoff: "+temp.getTreibstoff());
 	}
 	
-	public static Date GetDateInput()
+	
+	public static void Welcome()
 	{
-		Scanner eingabeWert = new Scanner(System.in);
-		Date date = null;
+		Printer("Welcomme in unserer Fuhparkverwaltung");
+		Printer("Bitte wählen Sie aus: ");
+	}
+	
+	public static int GetIntInput()
+	{
+		Scanner scanner = new Scanner(System.in);
+		Integer option = null;
 		String input;
-		SimpleDateFormat sdtF = new SimpleDateFormat("dd.MM.yyyy",Locale.GERMANY);
-		while(date == null)
+		
+		while(option == null)
 		{
-			Printer("Date format: 01.01.1970");
-			input = eingabeWert.next();
-			try
-			{
-				date = sdtF.parse(input);
+			Printer("Bitte geben Sie ein digitale Number!");
+			input = scanner.next();
+			try {
+				option = Integer.class.isInstance(Integer.parseInt(input)) ? Integer.parseInt(input) >= 0 ? Integer.parseInt(input) : null : null; 
 			}
 			catch(Exception e)
 			{
 				
 			}
 		}
-		return date;
+		return option;	
+	}
+	
+	public static int GetIntInput(int max)
+	{
+		//Printer("Bitte etwas von oben auswahlen [Only Digits]");
+		Scanner scanner = new Scanner(System.in);
+		Integer option = null;
+		String input;
+		
+		while(option == null)
+		{
+			Printer("Bitte geben Sie ein digitale Number!");
+			input = scanner.next();
+			try {
+				//option = Integer.class.isInstance(Integer.parseInt(input)) ? Integer.parseInt(input) : null;
+				option = Integer.class.isInstance(Integer.parseInt(input)) ? 
+						Integer.parseInt(input) >= 0 && Integer.parseInt(input) <= max ? 
+								Integer.parseInt(input) : null : null; 
+			}
+			catch(Exception e)
+			{
+				
+			}
+		}
+		return option;
 	}
 	
 	public static double GetDoubleInput()
 	{
-		Scanner eingabeWert = new Scanner(System.in);
+		Scanner scanner = new Scanner(System.in);
 		double option = 0;
 		String input;
 		
 		while(option == 0)
 		{
-			input = eingabeWert.next();
+			input = scanner.next();
 			try {
 				option = Double.class.isInstance(Double.parseDouble(input)) ? Double.parseDouble(input) >= 0 ? Double.parseDouble(input) : null : null; 
 			}
@@ -455,72 +487,47 @@ public class Main {
 		
 	}
 	
-	
-	
-	public static void CreateMitarbeiter()
+	public static String GetStringInput()
 	{
-		//Mitarbeiter Fields
-		String name;
-		
-		Printer("To Create Mitarbeiter you need to fill the follwing field");
-		Printer("Please Enter Name: ");
-		name = GetStringInput();
-
-		Mitarbeiter temp = new Mitarbeiter(name);
-		MitarbeiterDataController.AddMitarbeiter(temp);
-		Printer("You have added new Mitarbeiter");
-		Printer(temp.getId() + " " + temp.getName());
+		Scanner scanner = new Scanner(System.in);
+		String input = scanner.next();
+		return input;
 	}
 	
-	public static void CreateProduktionMitarbeiter()
+	public static Date GetDateInput()
 	{
-		String name;
-		boolean hasSchein;
-		Printer("To Create Mitarbeiter you need to fill the follwing field");
-		
-		
-		Printer("Please Enter Name: ");
-		name = GetStringInput();
-		
-		
-		Printer("Please Select of the Followin: ");
-		
-		int counter = 1;
-		for(var x : HasSchein.values())
+		Scanner scanner = new Scanner(System.in);
+		Date date = null;
+		String input;
+		SimpleDateFormat sdtF = new SimpleDateFormat("dd.MM.yyyy",Locale.GERMANY);
+		while(date == null)
 		{
-			System.out.println(counter + ". " + x.toString());
-			counter++;
+			Printer("Date format: 01.01.1970");
+			input = scanner.next();
+			try
+			{
+				date = sdtF.parse(input);
+			}
+			catch(Exception e)
+			{
+				
+			}
 		}
-		
-		
-		hasSchein = GetIntInput(2) == 1 ? true : false;
-		
-		ProduktionMitarbeiter temp = new ProduktionMitarbeiter(name,hasSchein);
-		MitarbeiterDataController.AddMitarbeiter(temp);
-		Printer("You have added ProduktionMitarbeiter");
-		Printer(temp.getId() + " " + temp.getName()+ " "+ (temp.isStaplerschein() ? HasSchein.JA : HasSchein.NEIN ));
-	}
-
-	public static void Welcome()
-	{
-		Printer("Welcomme in unserer Fuhparkverwaltung");
-	}
-	
-	public static void Printer(String s)
-	{
-		System.out.println(s);
-	}
+		return date;
+	}	
 	
 	public static void ShowOptions()
 	{
 		Printer("0. Zuruck");
 	}
+	
 	public static void ShowOptions(String s1, String s2)
 	{
 		Printer("1. "+s1);
 		Printer("2. "+s2);
 		Printer("0. Zuruck");
 	}
+	
 	public static void ShowOptions(String s1, String s2, String s3)
 	{
 		Printer("1. "+s1);
@@ -528,6 +535,7 @@ public class Main {
 		Printer("3. "+s3);
 		Printer("0. Zuruck");
 	}
+	
 	public static void ShowOptions(String s1, String s2, String s3,String s4)
 	{
 		Printer("1. "+s1);
@@ -537,67 +545,9 @@ public class Main {
 		Printer("0. Zuruck");
 	}
 	
-	//Input system
-	
-	//Int input for menu
-	static int GetIntInput(int max)
+	public static void Printer(String s)
 	{
-		//Printer("Bitte etwas von oben auswahlen [Only Digits]");
-		Scanner eingabeWert = new Scanner(System.in);
-		Integer option = null;
-		String input;
-		
-		while(option == null)
-		{
-			Printer("Bitte geben Sie ein digitale Number!");
-			input = eingabeWert.next();
-			try {
-				//option = Integer.class.isInstance(Integer.parseInt(input)) ? Integer.parseInt(input) : null;
-				option = Integer.class.isInstance(Integer.parseInt(input)) ? 
-						Integer.parseInt(input) >= 0 && Integer.parseInt(input) <= max ? 
-								Integer.parseInt(input) : null : null; 
-			}
-			catch(Exception e)
-			{
-				
-			}
-		}
-		
-		return option;
-		
+		System.out.println(s);
 	}
 	
-	public static int GetIntInput()
-	{
-		//Printer("Bitte etwas von oben auswahlen [Only Digits]");
-		Scanner eingabeWert = new Scanner(System.in);
-		Integer option = null;
-		String input;
-		
-		while(option == null)
-		{
-			Printer("Bitte geben Sie ein digitale Number!");
-			input = eingabeWert.next();
-			try {
-				option = Integer.class.isInstance(Integer.parseInt(input)) ? Integer.parseInt(input) >= 0 ? Integer.parseInt(input) : null : null; 
-			}
-			catch(Exception e)
-			{
-				
-			}
-		}
-		
-		
-		return option;
-		
-	}
-	
-	public static String GetStringInput()
-	{
-		Scanner eingabeWert = new Scanner(System.in);
-	
-		String input = eingabeWert.next();
-		
-		return input;
-	}
 }
