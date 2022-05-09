@@ -18,20 +18,20 @@ public class Main {
 
 	public static void main(String[] args) 
 	{
-		ProduktionMitarbeiter n = new ProduktionMitarbeiter ("Nagham", true);
+		ProduktionMitarbeiter n = new ProduktionMitarbeiter ("Neubauer", true);
 		ProduktionMitarbeiter e = new ProduktionMitarbeiter ("Emy", false);
-		Mitarbeiter k = new Mitarbeiter("Khaled");
+		Mitarbeiter k = new Mitarbeiter("Kinda");
 		
 		MitarbeiterDataController.AddMitarbeiter(n);
 		MitarbeiterDataController.AddMitarbeiter(e);
 		MitarbeiterDataController.AddMitarbeiter(k);
 		
 		
-		Transportfahrzeug transport= new Transportfahrzeug("Tesla", 1, new Date(), 178.96, "Transport");
-		Flurfoerderzeug flur = new Flurfoerderzeug("Tesla", 1, new Date(), 190.50, n, 190.5, true);
-		Elektromotor elektromotor = new Elektromotor("Tesla",1,new Date(),233.44,k,500.00,"Super Charger");
-		Kraftmotor karftmotor = new Kraftmotor("Toyota",2,new Date(),120.33,k,"Gas");
-		Hybrid hybrid = new Hybrid ("Tesla",1,new Date(),233.44,k,500.00,"Super Charger","Benzin");
+		Transportfahrzeug transport= new Transportfahrzeug("Mercedes", 48, new Date(), 374, "Transport");
+		Flurfoerderzeug flur = new Flurfoerderzeug("Solid Hub", 6, new Date(), 2600, n, 1200, true);
+		Elektromotor elektromotor = new Elektromotor("Tesla",48,new Date(),233.44,k,60,"Typ2");
+		Kraftmotor karftmotor = new Kraftmotor("Mercedes",48,new Date(),3.48,k,"Benzin");
+		Hybrid hybrid = new Hybrid ("VW Tiguan",48,new Date(),30.62,k,13,"Typ2","Benzin");
 		
 		FahrzeugDataController.AddFahrzeug(transport);
 		FahrzeugDataController.AddFahrzeug(flur);
@@ -39,35 +39,8 @@ public class Main {
 		FahrzeugDataController.AddFahrzeug(karftmotor);
 		FahrzeugDataController.AddFahrzeug(hybrid);
 	
-		//CreateTransport();
-		//FahrzeugDataController.ShowTransportFahrzeug();
 		
-		//CreateElektromotor();
-		//FahrzeugDataController.ShowElektromotorsFahrzeug();
 		
-		//CreateHybrid();
-		//FahrzeugDataController.ShowHybridFahrzeug();
-		
-		//CreateKraftmotor();
-		//FahrzeugDataController.ShowKraftmotorsFahrzeug();
-
-		//CreateFlurfoerderzeug();
-
-		//Test mitarbeiter
-		
-		/*MitarbeiterDataController.ShowMitarbeiter();
-		  MitarbeiterDataController.ShowProduktionMitarbeiter();
-		  MitarbeiterDataController.ShowAllMitarbeiter();
-		*/
-		//Test fahrzeug
-		/*
-		FahrzeugDataController.ShowAllFahrzeuge();
-		FahrzeugDataController.ShowHybridFahrzeug();
-		FahrzeugDataController.ShowKraftmotorsFahrzeug();
-		FahrzeugDataController.ShowElektromotorsFahrzeug();
-		FahrzeugDataController.ShowFlurfoerderFahrzeug();
-		FahrzeugDataController.ShowTransportFahrzeug();
-		*/
 		Welcome();
 		MenuSystem.ProgramLoop();
 	}

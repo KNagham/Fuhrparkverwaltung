@@ -19,7 +19,7 @@ public class MenuSystem {
 			}
 			else if(choice == 2)
 			{
-				//TODO
+				
 				CreateData();
 			}
 		}
@@ -83,7 +83,7 @@ public class MenuSystem {
 		int choice = -1;
 		while(choice != 0)
 		{
-			Main.ShowOptions("TransportFahrzeug", "FlurförderZeu", "Firmenwagen", "AllFahrzeuge");
+			Main.ShowOptions("TransportFahrzeug", "FlurförderZeug", "Firmenwagen", "AllFahrzeuge");
 			choice = Main.GetIntInput(4);
 			if(choice == 1)
 			{
@@ -179,7 +179,7 @@ public class MenuSystem {
 		int choice = -1;
 		while(choice != 0)
 		{
-			Main.ShowOptions("TransportFahrzeug", "FlurförderZeu", "Firmenwagen");
+			Main.ShowOptions("TransportFahrzeug", "FlurförderZeug", "Firmenwagen");
 			choice = Main.GetIntInput(3);
 			if(choice == 1)
 			{

@@ -7,7 +7,7 @@ public class ENUMS {
 	        @Override
 	        public String toString() 
 	        {
-	            return "Hat schein";
+	            return "Hat einen Stablerschein";
 	        }
 	       },
 	        
@@ -15,7 +15,7 @@ public class ENUMS {
 	    	   @Override
 	    	   public String toString()
 	    	   {
-	    		   return "Hat kein Schein";
+	    		   return "Hat keinen Stablerschein";
 	    	   }
 	       }
 	}
