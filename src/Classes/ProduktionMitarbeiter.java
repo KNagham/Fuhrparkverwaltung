@@ -1,12 +1,17 @@
 package Classes;
 
-public class ProduktionMitarbeiter extends Mitarbeiter{
+public class ProduktionMitarbeiter extends Mitarbeiter
+{
 	 private boolean staplerschein;
 	 
-	 public ProduktionMitarbeiter(int id, String name, boolean staplerschein)
+	 public boolean isStaplerschein()
 	 {
-		 super(id, name);
+			return staplerschein;
+	 }
+	 
+	 public ProduktionMitarbeiter(String name, boolean staplerschein)
+	 {
+		 super(name);
 		 this.staplerschein= staplerschein;
 	 }
-
 }

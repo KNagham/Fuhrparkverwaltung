@@ -1,14 +1,24 @@
 package Classes;
 
-public class Mitarbeiter {
+public class Mitarbeiter
+{
 	
 	private int id;
 	private String name;
 	
-	public Mitarbeiter(int id, String name)
+	public int getId() 
 	{
-		this.id= id;
-		this.name = name;
+		return id;
 	}
 
+	public String getName() {
+		return name;
+	}
+	
+	public Mitarbeiter(String name)
+	{
+		MitarbeiterID.incrementId();
+		this.id= MitarbeiterID.getId();
+		this.name = name;
+	}
 }
